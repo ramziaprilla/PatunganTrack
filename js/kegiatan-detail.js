@@ -1,5 +1,5 @@
 import { supabase } from './supabase.js'
-import { initPage, ringkasPeserta, ikonKategori, rupiah, tanggal, esc, notify } from './common.js'
+import { initPage, ringkasPeserta, hapusKegiatan, ikonKategori, rupiah, tanggal, esc, notify } from './common.js'
 
 const id = new URLSearchParams(location.search).get('id')
 const form = document.getElementById('peserta-form')
@@ -163,13 +163,6 @@ async function bagiRata() {
   await muatPeserta()
 }
 
-async function hapusKegiatan() {
-  if (!confirm(`Hapus "${kegiatan.nama_kegiatan}" beserta semua pesertanya?`)) return
-  const { error } = await supabase.from('kegiatan').delete().eq('id', kegiatan.id)
-  if (error) return notify('Gagal menghapus: ' + error.message, true)
-  location.replace('index.html')
-}
-
 async function main() {
   const user = await initPage()
   if (!user) return
@@ -189,7 +182,9 @@ async function main() {
   batalBtn.addEventListener('click', resetForm)
   tbody.addEventListener('click', aksiPeserta)
   $('btn-bagi-rata').addEventListener('click', bagiRata)
-  $('btn-hapus').addEventListener('click', hapusKegiatan)
+  $('btn-hapus').addEventListener('click', async () => {
+    if (await hapusKegiatan(kegiatan)) location.replace('groups.html')
+  })
   pills.forEach((pill) => pill.addEventListener('click', () => {
     pills.forEach((x) => x.classList.toggle('active', x === pill))
     filter = pill.dataset.filter

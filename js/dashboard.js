@@ -1,5 +1,4 @@
-import { supabase } from './supabase.js'
-import { initPage, ringkasPeserta, ikonKategori, rupiah, tanggal, esc, notify } from './common.js'
+import { initPage, ambilKegiatan, hapusKegiatan, kartuKegiatan, rupiah } from './common.js'
 
 const grid = document.getElementById('kegiatan-grid')
 const empty = document.getElementById('kegiatan-empty')
@@ -8,59 +7,6 @@ const pills = document.querySelectorAll('.filter-pills .pill')
 
 let semuaKegiatan = []
 let filter = 'semua'
-
-function status(r) {
-  if (r.jumlah === 0) return { label: 'Belum ada peserta', cls: 'pending' }
-  if (r.lunas) return { label: 'Lunas', cls: 'success' }
-  return { label: 'Berjalan', cls: 'running' }
-}
-
-function kartu(k) {
-  const r = k.ringkasan
-  const s = status(r)
-  return `
-    <article class="card group-card">
-      <div class="group-card-header">
-        <div class="group-info">
-          <div class="group-avatar-img">${ikonKategori(k.kategori)}</div>
-          <div>
-            <h3 class="group-title">${esc(k.nama_kegiatan)}</h3>
-            <p class="group-meta">${esc(k.kategori || 'Tanpa kategori')} • ${r.jumlah} Peserta</p>
-          </div>
-        </div>
-        <span class="status-badge ${s.cls}">${s.label}</span>
-      </div>
-
-      <div class="progress-container">
-        <div class="progress-info">
-          <span>Terkumpul: <strong>${rupiah(r.terkumpul)}</strong></span>
-          <span>${r.persen}%</span>
-        </div>
-        <div class="progress-bar">
-          <div class="progress-fill ${r.lunas ? 'green-fill' : 'orange-fill'}" style="width: ${r.persen}%"></div>
-        </div>
-        <div class="target-info">
-          <span>Total Biaya</span>
-          <strong>${rupiah(r.total)}</strong>
-        </div>
-      </div>
-
-      <div class="group-card-footer">
-        <div class="members-share">
-          <span class="group-meta">Tenggat: ${tanggal(k.tenggat)}</span>
-          <div class="user-share">
-            <span>Per Orang:</span>
-            <strong class="share-amount">${r.jumlah ? rupiah(r.perOrang) : '-'}</strong>
-          </div>
-        </div>
-        <div class="card-actions">
-          <a class="btn-card-secondary" href="create-group.html?id=${k.id}">Edit</a>
-          <button type="button" class="btn-card-danger" data-hapus="${k.id}">Hapus</button>
-          <a class="btn-card-primary" href="group-detail-admin.html?id=${k.id}">Detail</a>
-        </div>
-      </div>
-    </article>`
-}
 
 function render() {
   const kata = search.value.trim().toLowerCase()
@@ -71,7 +17,7 @@ function render() {
     return cocok
   })
 
-  grid.innerHTML = tampil.map(kartu).join('')
+  grid.innerHTML = tampil.map(kartuKegiatan).join('')
   empty.hidden = tampil.length > 0
   empty.textContent = semuaKegiatan.length
     ? 'Tidak ada patungan yang cocok dengan pencarian atau filter.'
@@ -93,27 +39,11 @@ function renderRingkasan() {
 }
 
 async function muat() {
-  const { data, error } = await supabase
-    .from('kegiatan')
-    .select('*, peserta(nominal_tagihan, status_lunas)')
-    .order('created_at', { ascending: false })
-
-  if (error) return notify('Gagal memuat data: ' + error.message, true)
-
-  semuaKegiatan = data.map((k) => ({ ...k, ringkasan: ringkasPeserta(k, k.peserta) }))
+  const data = await ambilKegiatan()
+  if (!data) return
+  semuaKegiatan = data
   renderRingkasan()
   render()
-}
-
-async function hapus(id) {
-  const k = semuaKegiatan.find((x) => String(x.id) === id)
-  if (!confirm(`Hapus "${k.nama_kegiatan}" beserta semua pesertanya?`)) return
-
-  const { error } = await supabase.from('kegiatan').delete().eq('id', id)
-  if (error) return notify('Gagal menghapus: ' + error.message, true)
-
-  notify('Patungan dihapus.')
-  await muat()
 }
 
 async function main() {
@@ -128,9 +58,11 @@ async function main() {
     filter = pill.dataset.filter
     render()
   }))
-  grid.addEventListener('click', (e) => {
+  grid.addEventListener('click', async (e) => {
     const btn = e.target.closest('[data-hapus]')
-    if (btn) hapus(btn.dataset.hapus)
+    if (!btn) return
+    const k = semuaKegiatan.find((x) => String(x.id) === btn.dataset.hapus)
+    if (await hapusKegiatan(k)) await muat()
   })
 
   await muat()

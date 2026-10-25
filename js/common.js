@@ -38,6 +38,84 @@ export function ringkasPeserta(kegiatan, peserta) {
   return { total, jumlah, terkumpul, belum, lunas, persen, perOrang }
 }
 
+export function statusKegiatan(r) {
+  if (r.jumlah === 0) return { key: 'kosong', label: 'Belum ada peserta', cls: 'pending' }
+  if (r.lunas) return { key: 'lunas', label: 'Lunas', cls: 'success' }
+  return { key: 'berjalan', label: 'Berjalan', cls: 'running' }
+}
+
+export async function ambilKegiatan() {
+  const { data, error } = await supabase
+    .from('kegiatan')
+    .select('*, peserta(nominal_tagihan, status_lunas)')
+    .order('created_at', { ascending: false })
+  if (error) {
+    notify('Gagal memuat data: ' + error.message, true)
+    return null
+  }
+  return data.map((k) => {
+    const ringkasan = ringkasPeserta(k, k.peserta)
+    return { ...k, ringkasan, status: statusKegiatan(ringkasan) }
+  })
+}
+
+export async function hapusKegiatan(k) {
+  if (!confirm(`Hapus "${k.nama_kegiatan}" beserta semua pesertanya?`)) return false
+  const { error } = await supabase.from('kegiatan').delete().eq('id', k.id)
+  if (error) {
+    notify('Gagal menghapus: ' + error.message, true)
+    return false
+  }
+  notify('Patungan dihapus.')
+  return true
+}
+
+export function kartuKegiatan(k) {
+  const r = k.ringkasan
+  return `
+    <article class="card group-card group-item-card">
+      <div class="group-card-header">
+        <div class="group-info">
+          <div class="group-avatar-img">${ikonKategori(k.kategori)}</div>
+          <div>
+            <h3 class="group-title">${esc(k.nama_kegiatan)}</h3>
+            <p class="group-meta">${esc(k.kategori || 'Tanpa kategori')} • ${r.jumlah} Peserta</p>
+          </div>
+        </div>
+        <span class="status-badge ${k.status.cls}">${k.status.label}</span>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-info">
+          <span>Terkumpul: <strong>${rupiah(r.terkumpul)}</strong></span>
+          <span>${r.persen}%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill ${r.lunas ? 'green-fill' : 'orange-fill'}" style="width: ${r.persen}%"></div>
+        </div>
+        <div class="target-info">
+          <span>Total Biaya</span>
+          <strong>${rupiah(r.total)}</strong>
+        </div>
+      </div>
+
+      <div class="group-card-footer">
+        <div class="members-share">
+          <span class="group-meta">Tenggat: ${tanggal(k.tenggat)}</span>
+          <div class="user-share">
+            <span>Per Orang:</span>
+            <strong class="share-amount">${r.jumlah ? rupiah(r.perOrang) : '-'}</strong>
+          </div>
+        </div>
+        <div class="card-actions">
+          <a class="btn-card-secondary" href="create-group.html?id=${k.id}">Edit</a>
+          <button type="button" class="btn-card-danger" data-hapus="${k.id}">Hapus</button>
+          <a class="btn-card-primary" href="group-detail-admin.html?id=${k.id}">Detail</a>
+        </div>
+      </div>
+    </article>`
+}
+
 export function notify(text, isError = false) {
   let el = document.querySelector('.toast')
   if (!el) {
