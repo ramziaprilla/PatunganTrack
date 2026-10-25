@@ -3,18 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PatunganTrack - Buat Grup Baru</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/dashboard.css">
-  <link rel="stylesheet" href="css/create-group.css">
+  <title>PatunganTrack - Buat Patungan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/create-group.css">
 </head>
 <body>
   <div class="dashboard-container">
-
-    <!-- SIDEBAR NAVIGASI -->
     <aside class="sidebar">
       <div class="sidebar-brand">
         <img src="logo.png" alt="PatunganTrack Logo" class="brand-logo">
@@ -22,185 +19,141 @@
       </div>
 
       <nav class="sidebar-nav">
-        <a href="index.html" class="nav-item">
-          <span class="nav-icon">🏠</span> Home
-        </a>
-        <a href="#" class="nav-item active">
-          <span class="nav-icon">👥</span> Grup Patungan
-        </a>
-        <a href="notifications.html" class="nav-item">
-          <span class="nav-icon">🔔</span> Notifikasi
-        </a>
-        <a href="#" class="nav-item">
-          <span class="nav-icon">⚙️</span> Akun
-        </a>
+        <a href="index.html" class="nav-item"><span class="nav-icon">🏠</span> Home</a>
+        <a href="create-group.html" class="nav-item active"><span class="nav-icon">➕</span> Buat Patungan</a>
+        <a href="join-group.html" class="nav-item"><span class="nav-icon">🤝</span> Gabung Grup</a>
+        <a href="notifications.html" class="nav-item"><span class="nav-icon">🔔</span> Notifikasi</a>
       </nav>
 
       <div class="sidebar-footer">
-        <button id="logout-btn" class="btn-logout">
-          <span class="nav-icon">↪</span> Keluar Akun
-        </button>
+        <button id="logout-btn" class="btn-logout"><span class="nav-icon">↪</span> Keluar Akun</button>
       </div>
     </aside>
 
-    <!-- KONTEN UTAMA BUAT GRUP -->
     <main class="main-content">
-
-      <!-- TOPBAR HEADER -->
       <header class="topbar">
-        <div class="breadcrumb-text">Menu Utama / <span class="orange-text">Grup Patungan</span></div>
+        <div class="breadcrumb-text">Menu Utama / <span class="orange-text" id="breadcrumb">Buat Patungan</span></div>
         <div class="topbar-right">
-          <button class="icon-btn notification-btn" aria-label="Notifikasi">
-            🔔 <span class="badge-dot"></span>
-          </button>
+          <a href="notifications.html" class="icon-btn" aria-label="Notifikasi">🔔</a>
           <div class="user-profile">
-            <div class="avatar-circle">ar</div>
-            <span class="user-name">User</span>
+            <div class="avatar-circle"></div>
+            <span class="user-name"></span>
           </div>
         </div>
       </header>
 
-      <!-- TITLE BAR & CANCEL BTN -->
       <section class="create-title-section">
         <div>
-          <h1 class="page-title">Buat Grup Patungan Baru ✨ <span class="fintech-tag">Fintech Precision</span></h1>
-          <p class="page-desc">Inisiasikan grup pengeluaran bersama untuk liburan, sewa hunian, langganan rutin, atau acara keluarga dengan pembagian tagihan otomatis dan transparan.</p>
+          <h1 class="page-title" id="form-title">Buat Patungan Baru ✨</h1>
+          <p class="page-desc">Catat pengeluaran bersama untuk liburan, sewa hunian, langganan, atau acara. Peserta dan tagihannya diatur di halaman detail setelah patungan dibuat.</p>
         </div>
-        <a href="index.html" class="btn-cancel">← Batal / Kembali</a>
+        <a href="index.html" class="btn-cancel" id="btn-batal">← Batal</a>
       </section>
 
-      <!-- FORM & PREVIEW LAYOUT GRID -->
-      <div class="create-grid-layout">
-
-        <!-- SISI KIRI: FORM INPUT -->
+      <form id="kegiatan-form" class="create-grid-layout">
         <div class="form-left-container">
-
-          <!-- SECTION 1: Identitas & Profil Grup -->
           <div class="form-card">
             <div class="form-card-header">
               <div class="section-title">
                 <span class="section-icon">📇</span>
-                <h2>1. Identitas & Profil Grup</h2>
+                <h2>1. Identitas Patungan</h2>
               </div>
               <span class="badge-required">Wajib Diisi</span>
             </div>
 
             <div class="input-group">
-              <label for="group-name">Nama Grup Patungan</label>
+              <label for="nama">Nama Patungan</label>
               <div class="input-with-icon">
-                <input type="text" id="group-name" value="Trip Labuan Bajo 2026">
-                <span class="edit-icon">✏️</span>
+                <input type="text" id="nama" name="nama" placeholder="Contoh: Trip Labuan Bajo 2026" maxlength="100" required>
               </div>
             </div>
 
             <div class="input-group">
-              <label>Kategori Pengeluaran</label>
-              <div class="category-pills">
-                <button type="button" class="cat-pill active">✈️ Wisata & Liburan</button>
-                <button type="button" class="cat-pill">🏠 Hunian & Sewa</button>
-                <button type="button" class="cat-pill">🍽️ Kuliner</button>
-                <button type="button" class="cat-pill">🔄 Langganan</button>
-                <button type="button" class="cat-pill">⚽ Olahraga</button>
-                <button type="button" class="cat-pill">🎁 Acara / Kado</button>
+              <span class="input-label">Kategori Pengeluaran</span>
+              <div class="category-pills" id="kategori-pills">
+                <button type="button" class="cat-pill active" data-kategori="Wisata & Liburan">✈️ Wisata & Liburan</button>
+                <button type="button" class="cat-pill" data-kategori="Hunian & Sewa">🏠 Hunian & Sewa</button>
+                <button type="button" class="cat-pill" data-kategori="Kuliner">🍽️ Kuliner</button>
+                <button type="button" class="cat-pill" data-kategori="Langganan">🔄 Langganan</button>
+                <button type="button" class="cat-pill" data-kategori="Olahraga">⚽ Olahraga</button>
+                <button type="button" class="cat-pill" data-kategori="Acara / Kado">🎁 Acara / Kado</button>
               </div>
             </div>
 
             <div class="input-row-flex">
               <div class="input-group icon-upload-box">
-                <label>Ikon Sampul</label>
-                <div class="cover-icon-preview">🏝️</div>
+                <span class="input-label">Ikon</span>
+                <div class="cover-icon-preview" id="cover-icon">✈️</div>
               </div>
 
               <div class="input-group flex-grow-1">
-                <label for="group-desc">Deskripsi & Catatan Aturan Patungan</label>
-                <textarea id="group-desc" rows="3">Patungan akomodasi vila, sewa kapal phinisi 3D2N, diving gear, serta makan bersama. Bukti transfer wajib diunggah maksimal 3 hari sebelum keberangkatan.</textarea>
+                <label for="deskripsi">Deskripsi & Catatan</label>
+                <textarea id="deskripsi" name="deskripsi" rows="3" placeholder="Contoh: sewa vila 3 malam dan makan bersama."></textarea>
               </div>
             </div>
           </div>
 
-          <!-- SECTION 2: Anggaran & Batas Waktu -->
           <div class="form-card">
             <div class="section-title">
               <span class="section-icon">💵</span>
-              <h2>2. Anggaran & Batas Waktu</h2>
+              <h2>2. Biaya & Tenggat</h2>
             </div>
 
             <div class="input-row-grid">
               <div class="input-group">
-                <label for="target-amount">Target Total Anggaran Patungan</label>
+                <label for="total">Total Biaya</label>
                 <div class="currency-input">
                   <span class="currency-prefix">Rp</span>
-                  <input type="text" id="target-amount" value="15.000.000">
+                  <input type="number" id="total" name="total" min="0" step="1" inputmode="numeric" placeholder="0" required>
                 </div>
-                <span class="input-hint">Estimasi biaya keseluruhan grup yang akan dikumpulkan</span>
+                <span class="input-hint">Total biaya yang akan dibagi ke peserta</span>
               </div>
 
               <div class="input-group">
-                <label for="deadline">Batas Akhir Pelunasan (Deadline)</label>
+                <label for="tenggat">Batas Pelunasan</label>
                 <div class="date-input-wrapper">
-                  <input type="date" id="deadline" value="2026-12-31">
+                  <input type="date" id="tenggat" name="tenggat">
                 </div>
-                <span class="input-hint">Sistem mengirim pengingat otomatis H-3 sebelum tenggat</span>
+                <span class="input-hint">Opsional</span>
               </div>
             </div>
           </div>
-
         </div>
 
-        <!-- SISI KANAN: PRATINJAU LANGSUNG KARTU GRUP -->
         <div class="preview-right-container">
-
           <div class="preview-label">
-            <span>● PRATINJAU LANGSUNG KARTU GRUP</span>
-            <span class="preview-role">Tampilan Anggota</span>
+            <span>● PRATINJAU KARTU</span>
           </div>
 
-          <!-- KARTU PREVIEW SAMA PERSIS UI FIGMA -->
           <div class="preview-card-box">
             <div class="preview-card-header">
-              <span class="preview-category-tag">✈️ Wisata & Liburan</span>
-              <span class="preview-status-badge">Baru Dibuat</span>
+              <span class="preview-category-tag" id="prev-kategori">✈️ Wisata & Liburan</span>
+              <span class="preview-status-badge" id="prev-status">Baru Dibuat</span>
             </div>
-            
+
             <div class="preview-card-title">
-              <span class="preview-emoji">🏝️</span>
-              <h3>Trip Labuan Bajo 2026</h3>
+              <span class="preview-emoji" id="prev-emoji">✈️</span>
+              <h3 id="prev-nama">Nama patungan</h3>
             </div>
 
             <div class="preview-stats-row">
               <div class="stat-col">
-                <span class="stat-label">Target Iuran Total</span>
-                <strong class="stat-val">Rp 15.000.000</strong>
+                <span class="stat-label">Total Biaya</span>
+                <strong class="stat-val" id="prev-total">Rp 0</strong>
               </div>
               <div class="stat-col text-right">
-                <span class="stat-label">Estimasi / Anggota</span>
-                <strong class="stat-val orange-text">Rp 2.500.000</strong>
-              </div>
-            </div>
-
-            <div class="preview-progress-bar">
-              <div class="progress-track">
-                <div class="progress-fill" style="width: 0%;"></div>
-              </div>
-              <div class="preview-meta-row">
-                <span>Terkumpul 0% (Rp 0)</span>
-                <span>Tenggat: 31 Des 2026</span>
+                <span class="stat-label">Tenggat</span>
+                <strong class="stat-val orange-text" id="prev-tenggat">-</strong>
               </div>
             </div>
           </div>
 
-          <!-- TOMBOL EKSEKUSI UTAMA -->
-          <button type="button" class="btn-submit-create">
-            Buat Grup Sekarang 🚀
-          </button>
-
+          <button type="submit" class="btn-submit-create" id="btn-submit">Buat Patungan Sekarang 🚀</button>
         </div>
-
-      </div>
-
+      </form>
     </main>
   </div>
 
-  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/kegiatan-form.js"></script>
 </body>
 </html>
