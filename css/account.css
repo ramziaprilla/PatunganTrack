@@ -1,0 +1,341 @@
+/* HERO BANNER ACCOUNT */
+.account-hero-banner {
+  background: white;
+  border: 1px solid var(--border-color);
+  padding: 24px 32px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.account-hero-banner h1 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.account-hero-banner p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.status-profile-badge {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+
+.status-label {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.status-value {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.green-dot { color: #10b981; }
+
+/* ACCOUNT GRID LAYOUT */
+.account-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+  align-items: start;
+}
+
+.left-account-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.account-card {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+/* PROFILE HEADER CARD */
+.profile-main-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 20px;
+}
+
+.profile-avatar-wrapper {
+  position: relative;
+}
+
+.profile-avatar-img {
+  width: 80px;
+  height: 80px;
+  background: #e0f2fe;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  border: 3px solid #bae6fd;
+}
+
+.btn-avatar-camera {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: var(--primary-orange);
+  color: white;
+  border: 2px solid white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.name-status-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.name-status-row h2 {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.badge-status-active {
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.profile-email, .profile-phone {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.profile-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.profile-stat-box {
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-box-label {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.stat-box-value {
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+/* FORM INFORMASI PRIBADI */
+.card-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.card-section-header h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.card-section-header p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.header-icon-box {
+  background: #f1f5f9;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+}
+
+.input-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.input-group.full-width {
+  margin-bottom: 24px;
+}
+
+.input-with-icon {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 0 12px;
+}
+
+.input-icon {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-right: 8px;
+}
+
+.input-with-icon input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 12px 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  outline: none;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  outline: none;
+  resize: vertical;
+}
+
+.form-actions-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn-form-reset {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.btn-form-save {
+  background: var(--primary-orange);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+/* SISI KANAN: KEAMANAN */
+.security-card h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.security-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.security-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.security-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.security-item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.arrow-icon {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+}
+
+.badge-status-aktif {
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.deactivate-account-box {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deactivate-account-box strong {
+  font-size: 0.85rem;
+  color: #dc2626;
+}
+
+.deactivate-account-box p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.btn-deactivate {
+  background: transparent;
+  border: none;
+  color: #dc2626;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
