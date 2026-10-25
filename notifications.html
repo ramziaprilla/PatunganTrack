@@ -45,122 +45,30 @@
 
       <section class="notif-header-section">
         <div class="notif-title-area">
-          <h1>Notifikasi <span class="badge-pill-orange">3 Baru</span></h1>
-          <p class="section-desc">Pantau pengingat tagihan, konfirmasi pembayaran, dan aktivitas grup kamu secara terpusat.</p>
+          <h1>Notifikasi <span class="badge-pill-orange" id="notif-baru" hidden></span></h1>
+          <p class="section-desc">Pengingat tenggat, tagihan yang belum lunas, dan aktivitas grup patungan kamu.</p>
         </div>
         <div class="header-action-btns">
-          <button class="btn-mark-all">✓ Tandai Semua Sudah Dibaca</button>
-          <button class="btn-icon-filter" aria-label="Filter">⚙️</button>
+          <button type="button" class="btn-mark-all" id="btn-baca-semua">✓ Tandai Semua Sudah Dibaca</button>
         </div>
       </section>
 
       <section class="notif-filter-bar">
-        <div class="filter-pills">
-          <button class="pill active">Semua (6)</button>
-          <button class="pill">Tagihan & Pembayaran</button>
-          <button class="pill">Aktivitas Grup</button>
-          <button class="pill">Sistem</button>
+        <div class="filter-pills" role="group" aria-label="Filter notifikasi">
+          <button type="button" class="pill active" data-filter="semua">Semua (<span data-count="semua">0</span>)</button>
+          <button type="button" class="pill" data-filter="tagihan">Tagihan & Pembayaran (<span data-count="tagihan">0</span>)</button>
+          <button type="button" class="pill" data-filter="grup">Aktivitas Grup (<span data-count="grup">0</span>)</button>
+          <button type="button" class="pill" data-filter="sistem">Sistem (<span data-count="sistem">0</span>)</button>
         </div>
-        <span class="notif-count-text">Menampilkan 6 notifikasi terkini</span>
+        <span class="notif-count-text" id="notif-info"></span>
       </section>
 
-      <section class="notif-list">
-
-        <article class="notif-card border-orange">
-          <div class="notif-card-body">
-            <div class="notif-icon-box box-orange">⏰</div>
-            <div class="notif-main-text">
-              <div class="notif-headline">
-                <h3>Tagihan Jatuh Tempo</h3>
-                <span class="badge-dot-orange">●</span>
-                <span class="tag-urgent">MENDESAK</span>
-              </div>
-              <p class="notif-desc">Pengingat tagihan patungan <strong>Sewa Apartemen Tebet 2026</strong> sebesar <strong>Rp 1.150.000</strong> jatuh tempo dalam 2 hari.</p>
-              <div class="notif-meta">5 menit yang lalu • Tagihan & Pembayaran</div>
-            </div>
-            <div class="notif-action-area">
-              <button class="btn-orange-primary">Bayar Sekarang</button>
-              <button class="btn-more">⋮</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="notif-card border-green">
-          <div class="notif-card-body">
-            <div class="notif-icon-box box-green">💵</div>
-            <div class="notif-main-text">
-              <div class="notif-headline">
-                <h3>Pembayaran Diterima</h3>
-                <span class="badge-dot-green">●</span>
-              </div>
-              <p class="notif-desc"><strong>Budi Santoso</strong> telah membayar bagian patungan sebesar <strong>Rp 650.000</strong> untuk grup <strong>Liburan Bali Kompak</strong>.</p>
-              <div class="notif-meta">32 menit yang lalu • Tagihan & Pembayaran</div>
-            </div>
-            <div class="notif-action-area">
-              <button class="btn-gray-secondary">Lihat Bukti Transfer</button>
-              <button class="btn-more">⋮</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="notif-card border-blue">
-          <div class="notif-card-body">
-            <div class="notif-icon-box box-blue">👥</div>
-            <div class="notif-main-text">
-              <div class="notif-headline">
-                <h3>Undangan Grup Baru</h3>
-                <span class="badge-dot-orange">●</span>
-              </div>
-              <p class="notif-desc">Kamu diundang bergabung ke grup patungan <strong>"Futsal Mingguan & Sewa Lapangan"</strong> oleh <strong>Dimas</strong>.</p>
-              <div class="notif-meta">1 jam yang lalu • Aktivitas Grup</div>
-            </div>
-            <div class="notif-action-area double-btn">
-              <button class="btn-gray-secondary">Tolak</button>
-              <button class="btn-navy-primary">Terima Undangan</button>
-              <button class="btn-more">⋮</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="notif-card">
-          <div class="notif-card-body">
-            <div class="notif-icon-box box-gray">✉️</div>
-            <div class="notif-main-text">
-              <div class="notif-headline">
-                <h3>Pengingat Otomatis Dikirim</h3>
-              </div>
-              <p class="notif-desc">Pengingat pembayaran tagihan telah berhasil dikirimkan ke 2 anggota di grup <strong>Kuliner & Nongkrong</strong>.</p>
-              <div class="notif-meta">3 jam yang lalu • Tagihan & Pembayaran</div>
-            </div>
-            <div class="notif-action-area">
-              <button class="btn-gray-secondary">Lihat Rincian</button>
-              <button class="btn-more">⋮</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="notif-card">
-          <div class="notif-card-body">
-            <div class="notif-icon-box box-green-light">✅</div>
-            <div class="notif-main-text">
-              <div class="notif-headline">
-                <h3>Patungan Selesai 100%</h3>
-              </div>
-              <p class="notif-desc">Target dana patungan untuk <strong>Kado Pernikahan Dimas & Sarah</strong> telah tercapai penuh dan siap dicairkan.</p>
-              <div class="notif-meta">Kemarin, 16:40 • Aktivitas Grup</div>
-            </div>
-            <div class="notif-action-area">
-              <button class="btn-gray-secondary">Buka Grup</button>
-              <button class="btn-more">⋮</button>
-            </div>
-          </div>
-        </article>
-
-      </section>
+      <section class="notif-list" id="notif-list"></section>
+      <p class="empty-state" id="notif-empty" hidden></p>
 
     </main>
   </div>
 
-  <script type="module" src="js/shell.js"></script>
+  <script type="module" src="js/notifications.js"></script>
 </body>
 </html>

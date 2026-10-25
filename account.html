@@ -47,46 +47,41 @@
       <section class="account-hero-banner">
         <div class="banner-text">
           <h1>Pengaturan Akun</h1>
-          <p>Kelola informasi pribadi, rekening pencairan dana patungan, dan preferensi keamanan akun Anda.</p>
+          <p>Kelola informasi pribadi dan keamanan akun PatunganTrack kamu.</p>
         </div>
         <div class="status-profile-badge">
-          <span class="status-label">STATUS PROFIL</span>
-          <span class="status-value"><span class="green-dot">●</span> Siap Tarik & Bagi Dana</span>
+          <span class="status-label">STATUS EMAIL</span>
+          <span class="status-value" id="status-email">-</span>
         </div>
       </section>
 
       <div class="account-grid-layout">
-
         <div class="left-account-col">
-
           <div class="account-card profile-header-card">
             <div class="profile-main-info">
-              <div class="profile-avatar-wrapper">
-                <div class="profile-avatar-img">🚀</div>
-                <button class="btn-avatar-camera" aria-label="Ubah Foto">📷</button>
-              </div>
+              <div class="profile-avatar-img" id="profil-avatar"></div>
               <div class="profile-text-details">
                 <div class="name-status-row">
-                  <h2>Budi Pratama</h2>
+                  <h2 id="profil-nama"></h2>
                   <span class="badge-status-active">Anggota Aktif</span>
                 </div>
-                <p class="profile-email">✉️ budi.pratama@email.com</p>
-                <p class="profile-phone">📞 +62 812-3456-7890</p>
+                <p class="profile-email" id="profil-email"></p>
+                <p class="profile-phone" id="profil-hp" hidden></p>
               </div>
             </div>
 
             <div class="profile-stats-row">
               <div class="profile-stat-box">
                 <span class="stat-box-label">BERGABUNG</span>
-                <strong class="stat-box-value">Okt 2024</strong>
+                <strong class="stat-box-value" id="stat-bergabung">-</strong>
               </div>
               <div class="profile-stat-box">
-                <span class="stat-box-label">PATUNGAN SUKSES</span>
-                <strong class="stat-box-value">12 Grup</strong>
+                <span class="stat-box-label">PATUNGAN DIBUAT</span>
+                <strong class="stat-box-value" id="stat-dibuat">-</strong>
               </div>
               <div class="profile-stat-box">
-                <span class="stat-box-label">REPUTASI BAYAR</span>
-                <strong class="stat-box-value green-text">✓ 100%</strong>
+                <span class="stat-box-label">PATUNGAN LUNAS</span>
+                <strong class="stat-box-value green-text" id="stat-lunas">-</strong>
               </div>
             </div>
           </div>
@@ -95,100 +90,95 @@
             <div class="card-section-header">
               <div>
                 <h3>Informasi Pribadi</h3>
-                <p>Perbarui rincian identitas akun grup patungan Anda.</p>
+                <p>Perbarui identitas yang tampil di akun kamu.</p>
               </div>
               <span class="header-icon-box">📇</span>
             </div>
 
-            <form class="account-form">
+            <form class="account-form" id="profil-form">
               <div class="input-form-grid">
                 <div class="input-group">
-                  <label for="full-name">Nama Lengkap</label>
+                  <label for="full_name">Nama Lengkap</label>
                   <div class="input-with-icon">
                     <span class="input-icon">👤</span>
-                    <input type="text" id="full-name" value="Budi Pratama">
+                    <input type="text" id="full_name" name="full_name" maxlength="80" required>
                   </div>
                 </div>
 
                 <div class="input-group">
-                  <label for="username">ID Pengguna Patungan</label>
+                  <label for="username">ID Pengguna</label>
                   <div class="input-with-icon">
                     <span class="input-icon">@</span>
-                    <input type="text" id="username" value="budipratama">
+                    <input type="text" id="username" name="username" maxlength="30" pattern="[a-z0-9_.]+" title="Huruf kecil, angka, titik, atau garis bawah">
                   </div>
                 </div>
 
                 <div class="input-group">
                   <label for="email">Alamat Email</label>
-                  <div class="input-with-icon">
+                  <div class="input-with-icon input-readonly">
                     <span class="input-icon">✉️</span>
-                    <input type="email" id="email" value="budi.pratama@email.com">
+                    <input type="email" id="email" name="email" readonly>
                   </div>
+                  <span class="input-hint">Email dipakai untuk login dan tidak bisa diubah di sini.</span>
                 </div>
 
                 <div class="input-group">
                   <label for="phone">Nomor WhatsApp / HP</label>
                   <div class="input-with-icon">
                     <span class="input-icon">💬</span>
-                    <input type="text" id="phone" value="+62 812-3456-7890">
+                    <input type="tel" id="phone" name="phone" maxlength="20" placeholder="08xxxxxxxxxx">
                   </div>
                 </div>
               </div>
 
               <div class="input-group full-width">
                 <label for="bio">Catatan / Bio Singkat</label>
-                <textarea id="bio" rows="3">Suka traveling, nongkrong santai, dan selalu transfer tagihan patungan tepat waktu!</textarea>
+                <textarea id="bio" name="bio" rows="3" maxlength="200"></textarea>
               </div>
 
               <div class="form-actions-row">
-                <button type="button" class="btn-form-reset">Reset</button>
-                <button type="submit" class="btn-form-save">💾 Simpan Perubahan</button>
+                <button type="button" class="btn-form-reset" id="profil-reset">Reset</button>
+                <button type="submit" class="btn-form-save" id="profil-simpan">💾 Simpan Perubahan</button>
               </div>
             </form>
           </div>
-
         </div>
 
         <div class="right-account-col">
-
           <div class="account-card security-card">
-            <h3>Preferensi & Keamanan</h3>
-            <p class="security-subtitle">Sesuaikan alur transaksi dan proteksi akun patungan Anda.</p>
+            <h3>Keamanan</h3>
+            <p class="security-subtitle">Atur kata sandi dan sesi login akun kamu.</p>
 
             <div class="security-menu-list">
-              <a href="#" class="security-item">
-                <div class="security-item-left">
+              <button type="button" class="security-item" id="btn-ubah-sandi" aria-expanded="false">
+                <span class="security-item-left">
                   <span class="sec-icon">🔄</span>
                   <span>Ubah Kata Sandi</span>
-                </div>
+                </span>
                 <span class="arrow-icon">›</span>
-              </a>
+              </button>
 
-              <a href="#" class="security-item">
-                <div class="security-item-left">
-                  <span class="sec-icon">🛡️</span>
-                  <span>Autentikasi 2 Langkah (2FA)</span>
-                </div>
-                <span class="badge-status-aktif">Aktif</span>
-              </a>
+              <form class="password-form" id="sandi-form" hidden>
+                <input type="password" name="sandi" placeholder="Kata sandi baru" minlength="6" autocomplete="new-password" required aria-label="Kata sandi baru">
+                <input type="password" name="ulang" placeholder="Ulangi kata sandi baru" minlength="6" autocomplete="new-password" required aria-label="Ulangi kata sandi baru">
+                <button type="submit" class="btn-form-save" id="sandi-simpan">Simpan Kata Sandi</button>
+              </form>
             </div>
 
             <div class="deactivate-account-box">
               <div>
-                <strong>Nonaktifkan Akun</strong>
-                <p>Tutup akses sementara akun Anda.</p>
+                <strong>Keluar dari Semua Perangkat</strong>
+                <p>Akhiri sesi login di semua browser dan perangkat.</p>
               </div>
-              <button class="btn-deactivate">Nonaktifkan</button>
+              <button type="button" class="btn-deactivate" id="btn-keluar-semua">Keluar</button>
             </div>
           </div>
-
         </div>
-
       </div>
 
     </main>
   </div>
 
-  <script type="module" src="js/shell.js"></script>
+  <script type="module" src="js/account.js"></script>
 </body>
 </html>
