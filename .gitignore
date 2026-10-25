@@ -1,0 +1,12 @@
+# Editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vercel & env
+.vercel/
+.env
+.env.*
