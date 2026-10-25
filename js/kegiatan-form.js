@@ -2,6 +2,7 @@ import { supabase } from './supabase.js'
 import { initPage, ikonKategori, rupiah, tanggal, notify } from './common.js'
 
 const form = document.getElementById('kegiatan-form')
+const field = form.elements
 const pills = document.querySelectorAll('#kategori-pills .cat-pill')
 const submitBtn = document.getElementById('btn-submit')
 const id = new URLSearchParams(location.search).get('id')
@@ -19,9 +20,9 @@ function perbaruiPratinjau() {
   document.getElementById('cover-icon').textContent = ikon
   document.getElementById('prev-emoji').textContent = ikon
   document.getElementById('prev-kategori').textContent = `${ikon} ${kategori}`
-  document.getElementById('prev-nama').textContent = form.nama.value.trim() || 'Nama patungan'
-  document.getElementById('prev-total').textContent = rupiah(form.total.value)
-  document.getElementById('prev-tenggat').textContent = tanggal(form.tenggat.value)
+  document.getElementById('prev-nama').textContent = field.nama.value.trim() || 'Nama patungan'
+  document.getElementById('prev-total').textContent = rupiah(field.total.value)
+  document.getElementById('prev-tenggat').textContent = tanggal(field.tenggat.value)
 }
 
 async function muatUntukEdit() {
@@ -39,21 +40,21 @@ async function muatUntukEdit() {
   document.getElementById('btn-batal').href = `group-detail-admin.html?id=${id}`
   submitBtn.textContent = 'Simpan Perubahan'
 
-  form.nama.value = data.nama_kegiatan
-  form.deskripsi.value = data.deskripsi ?? ''
-  form.total.value = Number(data.total_biaya)
-  form.tenggat.value = data.tenggat ?? ''
+  field.nama.value = data.nama_kegiatan
+  field.deskripsi.value = data.deskripsi ?? ''
+  field.total.value = Number(data.total_biaya)
+  field.tenggat.value = data.tenggat ?? ''
   setKategori(data.kategori || kategori)
 }
 
 async function simpan(e) {
   e.preventDefault()
   const payload = {
-    nama_kegiatan: form.nama.value.trim(),
+    nama_kegiatan: field.nama.value.trim(),
     kategori,
-    deskripsi: form.deskripsi.value.trim() || null,
-    total_biaya: Number(form.total.value),
-    tenggat: form.tenggat.value || null,
+    deskripsi: field.deskripsi.value.trim() || null,
+    total_biaya: Number(field.total.value),
+    tenggat: field.tenggat.value || null,
   }
 
   submitBtn.disabled = true
@@ -68,15 +69,15 @@ async function simpan(e) {
 }
 
 async function main() {
-  const user = await initPage()
-  if (!user) return
-
+  // Interaksi form dipasang sebelum cek login supaya tidak menunggu jaringan.
   pills.forEach((p) => p.addEventListener('click', () => setKategori(p.dataset.kategori)))
   form.addEventListener('input', perbaruiPratinjau)
   form.addEventListener('submit', simpan)
-
-  if (id) await muatUntukEdit()
   perbaruiPratinjau()
+
+  const user = await initPage()
+  if (!user) return
+  if (id) await muatUntukEdit()
 }
 
 main()

@@ -11,10 +11,12 @@ function pesanError(error) {
   return PESAN_ERROR[error.message] ?? error.message
 }
 
-const { data: { session } } = await supabase.auth.getSession()
-if (session) location.replace('index.html')
+supabase.auth.getSession().then(({ data }) => {
+  if (data.session) location.replace('index.html')
+})
 
 const form = document.getElementById('login-form')
+const field = form.elements
 const tabMasuk = document.getElementById('tab-masuk')
 const tabDaftar = document.getElementById('tab-daftar')
 const submitBtn = form.querySelector('.btn-submit-orange')
@@ -46,8 +48,8 @@ document.querySelector('.toggle-password-icon').addEventListener('click', () => 
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault()
-  const email = form.email.value.trim()
-  const password = form.password.value
+  const email = field.email.value.trim()
+  const password = field.password.value
 
   submitBtn.disabled = true
   tampilkan('Memproses...')

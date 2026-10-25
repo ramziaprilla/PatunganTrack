@@ -3,6 +3,7 @@ import { initPage, ringkasPeserta, hapusKegiatan, ikonKategori, rupiah, tanggal,
 
 const id = new URLSearchParams(location.search).get('id')
 const form = document.getElementById('peserta-form')
+const field = form.elements
 const submitBtn = document.getElementById('peserta-submit')
 const batalBtn = document.getElementById('peserta-batal')
 const tbody = document.getElementById('peserta-body')
@@ -100,18 +101,18 @@ function resetForm() {
 
 function mulaiEdit(p) {
   editId = p.id
-  form.nama.value = p.nama_peserta
-  form.nominal.value = Number(p.nominal_tagihan)
+  field.nama.value = p.nama_peserta
+  field.nominal.value = Number(p.nominal_tagihan)
   submitBtn.textContent = 'Simpan'
   batalBtn.hidden = false
-  form.nama.focus()
+  field.nama.focus()
 }
 
 async function simpanPeserta(e) {
   e.preventDefault()
   const payload = {
-    nama_peserta: form.nama.value.trim(),
-    nominal_tagihan: Number(form.nominal.value) || 0,
+    nama_peserta: field.nama.value.trim(),
+    nominal_tagihan: Number(field.nominal.value) || 0,
   }
 
   submitBtn.disabled = true
