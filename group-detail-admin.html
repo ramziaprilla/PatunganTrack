@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PatunganTrack - Detail Grup (Admin)</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/group-detail-admin.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="dashboard-container">
+
+    <!-- SIDEBAR NAVIGASI -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="logo.png" alt="PatunganTrack Logo" class="brand-logo">
+        <span class="brand-title">PatunganTrack</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item">
+          <span class="nav-icon">🏠</span> Home
+        </a>
+        <a href="#" class="nav-item active">
+          <span class="nav-icon">👥</span> Grup Patungan
+        </a>
+        <a href="notifications.html" class="nav-item">
+          <span class="nav-icon">🔔</span> Notifikasi
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">⚙️</span> Akun
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="logout-btn" class="btn-logout">
+          <span class="nav-icon">↪</span> Keluar Akun
+        </button>
+      </div>
+    </aside>
+
+    <!-- KONTEN UTAMA DETAIL GRUP -->
+    <main class="main-content">
+
+      <!-- TOPBAR HEADER -->
+      <header class="topbar">
+        <div class="breadcrumb-text">Menu Utama / <span class="orange-text">Grup Patungan</span></div>
+        <div class="topbar-right">
+          <button class="icon-btn notification-btn" aria-label="Notifikasi">
+            🔔 <span class="badge-dot"></span>
+          </button>
+          <div class="user-profile">
+            <div class="avatar-circle">ar</div>
+            <span class="user-name">User</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- HEADER GRUP & BUTTON ACTIONS -->
+      <section class="group-header-section">
+        <div class="group-header-left">
+          <div class="badge-role-admin">
+            <span>🛡️ PEMBUAT GRUP & PENANGGUNG JAWAB DANA</span>
+            <span class="group-id">ID: #GRP-VILLA-2024</span>
+          </div>
+          <h1 class="group-title-main">Trip Liburan Villa Puncak & Gathering</h1>
+          <div class="group-meta-sub">
+            <span>📅 Dibuat 12 Okt 2024</span> • <span class="members-count">6 Anggota Aktif</span>
+          </div>
+        </div>
+
+        <div class="group-header-actions">
+          <button class="btn-outline">📥 Unduh Rekap</button>
+          <button class="btn-outline">👥 Kelola Anggota</button>
+          <button class="btn-outline-icon">⚙️</button>
+          <button class="btn-orange-action">+ Catat Pengeluaran Baru</button>
+        </div>
+      </section>
+
+      <!-- 4 RINGKASAN ANGKA STATISTIK -->
+      <section class="stat-cards-grid">
+        <div class="stat-card">
+          <div class="stat-card-head">
+            <span>Target Anggaran</span>
+            <span class="stat-icon-blue">🏦</span>
+          </div>
+          <div class="stat-card-value">Rp 14.500.000</div>
+          <div class="stat-card-sub">6 Orang Patungan • <strong>Rp 2.416.600/org</strong></div>
+        </div>
+
+        <div class="stat-card border-bottom-green">
+          <div class="stat-card-head">
+            <span>Dana Masuk (Terkumpul)</span>
+            <span class="badge-percent-green">75% Tercapai</span>
+          </div>
+          <div class="stat-card-value green-text">Rp 10.875.000</div>
+          <div class="stat-card-sub">3 Lunas Penuh • <span class="green-text">Masuk ke Kas Admin</span></div>
+        </div>
+
+        <div class="stat-card border-bottom-orange">
+          <div class="stat-card-head">
+            <span>Menunggu Verifikasi</span>
+            <span class="badge-status-yellow">1 Menunggu</span>
+          </div>
+          <div class="stat-card-value orange-text">Rp 2.416.600</div>
+          <div class="stat-card-sub">Ada Bukti Masuk • <a href="#" class="orange-link">Periksa Sekarang</a></div>
+        </div>
+
+        <div class="stat-card border-bottom-red">
+          <div class="stat-card-head">
+            <span>Belum Lunas</span>
+            <span class="badge-status-red">2 Tertunda</span>
+          </div>
+          <div class="stat-card-value red-text">Rp 1.208.400</div>
+          <div class="stat-card-sub">1 Belum + 1 Parsial • <span class="red-text">Perlu Ditagih</span></div>
+        </div>
+      </section>
+
+      <!-- PROGRES KAS BAR -->
+      <section class="progress-bar-card">
+        <div class="progress-header">
+          <h3>📊 Progres Kas Pengumpulan Patungan</h3>
+          <div class="progress-legend">
+            <span><span class="dot green-dot"></span> Lunas Terverifikasi (75%)</span>
+            <span><span class="dot orange-dot"></span> Menunggu Verifikasi (16.7%)</span>
+            <span><span class="dot gray-dot"></span> Belum Masuk (8.3%)</span>
+          </div>
+        </div>
+        <div class="progress-segmented-bar">
+          <div class="segment green-segment" style="width: 75%;"></div>
+          <div class="segment orange-segment" style="width: 16.7%;"></div>
+          <div class="segment gray-segment" style="width: 8.3%;"></div>
+        </div>
+      </section>
+
+      <!-- REKENING KAS RESMI -->
+      <section class="rekening-section">
+        <div class="rekening-header">
+          <div class="rekening-title">
+            <span>💳 Rekening Kas Resmi Penampungan</span>
+            <p>Semua pembayaran wajib melalui Transfer Bank resmi di bawah ini atau diserahkan Kas Tunai langsung ke Admin.</p>
+          </div>
+          <span class="badge-manual-admin">🔒 Validasi Manual Admin</span>
+        </div>
+
+        <div class="bank-cards-grid">
+          <!-- BCA -->
+          <div class="bank-card">
+            <div class="bank-card-head">
+              <strong>BCA <span class="badge-tag">Utama</span></strong>
+              <span>🛡️</span>
+            </div>
+            <div class="bank-account-num">
+              <span>8029 4819 0284</span>
+              <button class="btn-copy">📋</button>
+            </div>
+            <div class="bank-owner">Atas Nama: <strong>User (Admin)</strong></div>
+          </div>
+
+          <!-- MANDIRI -->
+          <div class="bank-card">
+            <div class="bank-card-head">
+              <strong>MANDIRI <span class="badge-tag">Alternatif</span></strong>
+              <span>🛡️</span>
+            </div>
+            <div class="bank-account-num">
+              <span>137-00-2948102-1</span>
+              <button class="btn-copy">📋</button>
+            </div>
+            <div class="bank-owner">Atas Nama: <strong>User (Admin)</strong></div>
+          </div>
+
+          <!-- KAS TUNAI -->
+          <div class="bank-card">
+            <div class="bank-card-head">
+              <strong>KAS TUNAI <span class="badge-tag">Tatap Muka</span></strong>
+              <span>💵</span>
+            </div>
+            <div class="bank-account-num">
+              <span class="cash-text">Uang Fisik Langsung</span>
+              <span>💵</span>
+            </div>
+            <div class="bank-owner">Penerima Kas: <strong>User (Di Lokasi)</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TABEL PENGELOLAAN STATUS PEMBAYARAN ANGGOTA -->
+      <section class="members-table-card">
+        <div class="table-card-header">
+          <div>
+            <h3>👥 Pengelolaan Status Pembayaran Anggota</h3>
+            <p>Sebagai Penanggung Jawab Dana, Anda dapat mengubah atau mengonfirmasi status pembayaran setiap anggota.</p>
+          </div>
+          <div class="table-filter-pills">
+            <span class="filter-label">Filter Cepat:</span>
+            <button class="pill active">Semua (6)</button>
+            <button class="pill">Verifikasi (1)</button>
+            <button class="pill">Belum Lunas (2)</button>
+          </div>
+        </div>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Anggota</th>
+              <th>Tagihan / Nominal</th>
+              <th>Metode Bayar</th>
+              <th>Status Saat Ini</th>
+              <th>Bukti Pembayaran</th>
+              <th>Aksi Admin (Ubah Status)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- User Admin -->
+            <tr>
+              <td>
+                <div class="user-info-col">
+                  <div class="avatar-admin">Admin</div>
+                  <div>
+                    <strong>User <span class="badge-you">Kamu</span></strong>
+                    <span class="user-email">User@Gmail.com</span>
+                  </div>
+                </div>
+              </td>
+              <td><strong>Rp 2.416.600</strong><br><span class="sub-green">Penyetor Awal</span></td>
+              <td>🏦 Saldo Pembuat Grup</td>
+              <td><span class="status-pill green-pill">✓ Lunas</span></td>
+              <td>Dana Talangan Admin</td>
+              <td><span class="text-locked">Terkunci (Pembuat)</span></td>
+            </tr>
+
+            <!-- Sarah Amelia -->
+            <tr>
+              <td>
+                <div class="user-info-col">
+                  <div class="avatar-img">👧</div>
+                  <div>
+                    <strong>Sarah Amelia</strong>
+                    <span class="user-email">0812-9844-1029</span>
+                  </div>
+                </div>
+              </td>
+              <td><strong>Rp 2.416.600</strong><br><span class="sub-green">Dibayar Penuh</span></td>
+              <td>🏦 Transfer BCA<br><span class="sub-date">14 Okt 2024, 09:12</span></td>
+              <td><span class="status-pill green-pill">✓ Lunas</span></td>
+              <td><a href="#" class="orange-link">📄 Lihat Bukti Transfer</a></td>
+              <td><button class="btn-table-edit">Ubah Status</button></td>
+            </tr>
+
+            <!-- Dimas Arya -->
+            <tr>
+              <td>
+                <div class="user-info-col">
+                  <div class="avatar-img">👦</div>
+                  <div>
+                    <strong>Dimas Arya</strong>
+                    <span class="user-email">0857-1123-8899</span>
+                  </div>
+                </div>
+              </td>
+              <td><strong>Rp 2.416.600</strong><br><span class="sub-green">Dibayar Tunai</span></td>
+              <td>💵 Kas Tunai (Cash)<br><span class="sub-date">Diterima langsung Admin</span></td>
+              <td><span class="status-pill green-pill">✓ Lunas</span></td>
+              <td>📄 Lihat Catatan</td>
+              <td><button class="btn-table-edit">Ubah Status</button></td>
+            </tr>
+
+            <!-- Rian Hidayat (Perlu Verifikasi) -->
+            <tr class="row-highlight-orange">
+              <td>
+                <div class="user-info-col">
+                  <div class="avatar-img">👨</div>
+                  <div>
+                    <strong>Rian Hidayat</strong>
+                    <span class="sub-alert-orange">Mengunggah bukti baru 25 mnt lalu</span>
+                  </div>
+                </div>
+              </td>
+              <td><strong>Rp 2.416.600</strong><br><span class="sub-orange">Klaim Transfer BCA</span></td>
+              <td>🏦 Transfer BCA (8029..)<br><span class="sub-date">Hari ini, 13:40 WIB</span></td>
+              <td><span class="status-pill orange-pill">⏳ Menunggu Verifikasi</span></td>
+              <td><a href="#" class="orange-link">📄 Lihat Bukti Transfer</a></td>
+              <td>
+                <div class="action-btn-group">
+                  <button class="btn-table-confirm">✓ Konfirmasi Lunas</button>
+                  <button class="btn-table-reject">✕ Tolak</button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Citra Kirana -->
+            <tr>
+              <td>
+                <div class="user-info-col">
+                  <div class="avatar-img">👩</div>
+                  <div>
+                    <strong>Citra Kirana</strong>
+                    <span class="user-email">0813-8822-4411</span>
+                  </div>
+                </div>
+              </td>
+              <td><strong class="red-text">Rp 2.416.600</strong><br><span class="sub-red">Belum Ada Pembayaran</span></td>
+              <td>-</td>
+              <td><span class="status-pill red-pill">✕ Belum Lunas</span></td>
+              <td>Belum kirim bukti</td>
+              <td><button class="btn-table-navy">Set Lunas</button></td>
+            </tr>
+
+            <!-- Kevin Sanjaya -->
+            <tr>
+              <td>
+                <div class="user-info-col">
+                  <div class="avatar-img">🧑</div>
+                  <div>
+                    <strong>Kevin Sanjaya</strong>
+                    <span class="user-email">0821-4433-2211</span>
+                  </div>
+                </div>
+              </td>
+              <td><strong>Rp 1.416.600</strong><br><span class="sub-orange">Sisa Rp 1.000.000 lagi</span></td>
+              <td>🏦 Transfer Mandiri<br><span class="sub-date">Cicilan Pertama (13 Okt)</span></td>
+              <td><span class="status-pill yellow-pill">⏳ Sebagian (58%)</span></td>
+              <td><a href="#" class="orange-link">📄 Bukti Cicilan DP</a></td>
+              <td><button class="btn-table-edit">Update Manual</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- RINCIAN PENGELUARAN & KALKULASI BOTTOM GRID -->
+      <div class="bottom-split-grid">
+        <!-- SISI KIRI: RINCIAN PENGELUARAN RIIL -->
+        <div class="card-box flex-grow-2">
+          <div class="card-box-header">
+            <div>
+              <h3>📋 Rincian Pengeluaran Riil (Dibayar Admin)</h3>
+              <p>Biaya operasional bersama yang sudah ditalangi oleh Budi Pratama (Admin).</p>
+            </div>
+            <button class="btn-add-pos">+ Tambah Pos</button>
+          </div>
+
+          <div class="expense-list">
+            <div class="expense-item">
+              <div class="expense-icon">🏡</div>
+              <div class="expense-info">
+                <strong>Sewa Villa Gayatri Puncak (3H 2M)</strong>
+                <span>Lunas dibayar admin via BCA • Bukti faktur #VLA-992</span>
+              </div>
+              <div class="expense-price-col">
+                <strong class="expense-price">Rp 7.500.000</strong>
+                <span class="expense-per-person">Beban: 6 orang (@ Rp 1.250.000)</span>
+              </div>
+            </div>
+
+            <div class="expense-item">
+              <div class="expense-icon">🚐</div>
+              <div class="expense-info">
+                <strong>Sewa Toyota HiAce + Supir + Bensin</strong>
+                <span>Rental armada Jakarta - Bogor PP • Bukti #TRP-1082</span>
+              </div>
+              <div class="expense-price-col">
+                <strong class="expense-price">Rp 2.400.000</strong>
+                <span class="expense-per-person">Beban: 6 orang (@ Rp 400.000)</span>
+              </div>
+            </div>
+
+            <div class="expense-item">
+              <div class="expense-icon">🛒</div>
+              <div class="expense-info">
+                <strong>Bahan BBQ Malam & Sarapan Pagi</strong>
+                <span>Belanja supermarket daging & bumbu • Struk Superindo</span>
+              </div>
+              <div class="expense-price-col">
+                <strong class="expense-price">Rp 3.100.000</strong>
+                <span class="expense-per-person">Beban: 6 orang (@ Rp 516.666)</span>
+              </div>
+            </div>
+
+            <div class="expense-item">
+              <div class="expense-icon">🎟️</div>
+              <div class="expense-info">
+                <strong>Tiket Wisata & Aktivitas Outdoor</strong>
+                <span>Akses Kebun Teh & Outbound • Kasir Lokasi</span>
+              </div>
+              <div class="expense-price-col">
+                <strong class="expense-price">Rp 1.500.000</strong>
+                <span class="expense-per-person">Beban: 6 orang (@ Rp 250.000)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="expense-total-footer">
+            <span>Total Pengeluaran Grup Terdata:</span>
+            <strong class="total-big-price">Rp 14.500.000</strong>
+          </div>
+        </div>
+
+        <!-- SISI KANAN: KALKULASI RATA PATUNGAN -->
+        <div class="card-box calculation-box">
+          <h3>🧮 Kalkulasi Rata Patungan</h3>
+          <div class="calc-rows-list">
+            <div class="calc-row">
+              <span>Total Beban:</span>
+              <strong>Rp 14.500.000</strong>
+            </div>
+            <div class="calc-row">
+              <span>Jumlah Peserta:</span>
+              <strong>6 Orang</strong>
+            </div>
+            <div class="calc-row highlight-calc-row">
+              <span>Patungan / Anggota:</span>
+              <strong class="orange-text-big">Rp 2.416.600</strong>
+            </div>
+          </div>
+          <p class="calc-notice">Sistem membulatkan hingga angka ribuan terdekat untuk mempermudah transfer bank dan verifikasi struk.</p>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

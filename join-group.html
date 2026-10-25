@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PatunganTrack - Gabung Grup</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/join-group.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="dashboard-container">
+
+    <!-- SIDEBAR NAVIGASI -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="logo.png" alt="PatunganTrack Logo" class="brand-logo">
+        <span class="brand-title">PatunganTrack</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item">
+          <span class="nav-icon">🏠</span> Home
+        </a>
+        <a href="#" class="nav-item active">
+          <span class="nav-icon">👥</span> Grup Patungan
+        </a>
+        <a href="notifications.html" class="nav-item">
+          <span class="nav-icon">🔔</span> Notifikasi
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">⚙️</span> Akun
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="logout-btn" class="btn-logout">
+          <span class="nav-icon">↪</span> Keluar Akun
+        </button>
+      </div>
+    </aside>
+
+    <!-- KONTEN UTAMA GABUNG GRUP -->
+    <main class="main-content">
+
+      <!-- TOPBAR HEADER -->
+      <header class="topbar">
+        <div class="breadcrumb-text">Menu Utama / <span class="orange-text">Grup Patungan</span></div>
+        <div class="topbar-right">
+          <button class="icon-btn notification-btn" aria-label="Notifikasi">
+            🔔 <span class="badge-dot"></span>
+          </button>
+          <div class="user-profile">
+            <div class="avatar-circle">ar</div>
+            <span class="user-name">User</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- TITLE BAR & LINK KE BUAT GRUP -->
+      <section class="join-title-section">
+        <div>
+          <div class="sub-breadcrumb">Menu Utama › Grup Patungan › <span class="orange-text">Gabung Grup</span></div>
+          <h1 class="page-title">Gabung Grup Patungan 🤝</h1>
+          <p class="page-desc">Masukkan kode unik 6-karakter, pindai QR code undangan, atau tinjau undangan langsung untuk mulai membagi pengeluaran bersama teman secara transparan.</p>
+        </div>
+        <div class="create-instead-box">
+          <div class="create-instead-text">
+            <span>Ingin jadi inisiator?</span>
+            <a href="create-group.html" class="link-create-orange">Buat Grup Baru →</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="join-wrapper">
+
+        <!-- CARD 1: INPUT KODE ATAU TAUTAN -->
+        <div class="join-card">
+          <div class="join-card-header">
+            <div class="card-header-title">
+              <span class="icon-box">⌨️</span>
+              <div>
+                <h2>Kode atau Tautan Undangan</h2>
+                <p class="card-subtitle">Ketik kode grup 6-karakter atau tempel URL undangan</p>
+              </div>
+            </div>
+            <span class="badge-verified-auto">Otomatis Terverifikasi</span>
+          </div>
+
+          <div class="input-group">
+            <div class="label-row-flex">
+              <label for="group-code">Kode Unik Grup</label>
+              <button type="button" class="btn-link-action">📋 Tempel Kode</button>
+            </div>
+            <div class="code-input-box">
+              <span class="code-prefix">#</span>
+              <input type="text" id="group-code" value="PTG-8821X" placeholder="PTG-XXXXX">
+              <button type="button" class="btn-clear">Bersihkan</button>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="group-url">Atau gunakan URL Tautan Undangan</label>
+            <div class="url-input-box">
+              <span class="url-icon">🔗</span>
+              <input type="text" id="group-url" value="https://patungantrack.id/join/grup-labuan-bajo-2026" readonly>
+            </div>
+          </div>
+
+          <button type="button" class="btn-search-verify">
+            🔍 Cari & Verifikasi Grup
+          </button>
+        </div>
+
+        <!-- CARD 2: HASIL GRUP TERVERIFIKASI -->
+        <div class="join-card group-result-card">
+          <div class="result-card-header">
+            <div class="verified-status">
+              <span class="green-dot">●</span>
+              <strong>Grup Terverifikasi Ditemukan</strong>
+            </div>
+            <span class="badge-ready">Siap Bergabung</span>
+          </div>
+
+          <div class="result-details-box">
+            <div class="result-main-info">
+              <div class="group-logo-box">⛺</div>
+              <div>
+                <h3 class="result-group-title">Trip Akhir Tahun Labuan Bajo 2026</h3>
+                <div class="result-tags">
+                  <span class="tag-category">Wisata & Liburan</span>
+                  <span class="tag-admin">👤 Dimas Pratama • <span class="green-text">✓ Admin Terverifikasi</span></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="result-estimate-box">
+              <span class="est-label">Estimasi Iuran / Orang</span>
+              <strong class="est-value">Rp 1.850.000</strong>
+              <span class="est-sub">dari target total Rp 14.8M</span>
+            </div>
+          </div>
+
+          <div class="result-features-grid">
+            <div class="feature-item">
+              <span class="feature-icon">👥</span>
+              <div>
+                <span class="feature-label">Partisipan</span>
+                <strong>8 Anggota Aktif</strong>
+              </div>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">📊</span>
+              <div>
+                <span class="feature-label">Skema Bagi</span>
+                <strong>Rata (Equal Split)</strong>
+              </div>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">🔒</span>
+              <div>
+                <span class="feature-label">Transparansi</span>
+                <strong>Ledger Terbuka</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-card-footer">
+            <div class="sync-notice">
+              <span>ℹ️ Data transaksi grup akan otomatis tersinkronisasi ke dashboard kamu.</span>
+            </div>
+            <button type="button" class="btn-confirm-join">
+              🤝 Konfirmasi & Gabung Grup Ini
+            </button>
+          </div>
+        </div>
+
+        <!-- CARD 3: BOTTOM BANNER OPSI ALTERNATIF -->
+        <div class="bottom-info-banner">
+          <div class="info-banner-left">
+            <span class="info-icon">❓</span>
+            <div>
+              <strong>Tidak punya kode undangan?</strong>
+              <p>Minta admin grup untuk membagikan tautan undangan dari aplikasi mereka, atau inisiasikan grup kamu sendiri untuk mengajak anggota lainnya.</p>
+            </div>
+          </div>
+          <a href="create-group.html" class="btn-navy-small">Buat Grup Sekarang</a>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>
