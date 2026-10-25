@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PatunganTrack - Masuk</title>
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<script src="js/auth.js"></script>
+<body>
+    <div class="auth-container">
+        
+        <!-- SISI KIRI: FORM SECTION -->
+        <main class="auth-form-section">
+            <div class="form-wrapper">
+                
+                <!-- Logo Aplikasi (Silakan ganti src="logo.png" dengan file Anda) -->
+                <div class="auth-brand-logo">
+                    <img src="logo.png" alt="PatunganTrack Logo" class="app-logo-img">
+                </div>
+
+                <span class="auth-subtitle-orange">PATUNGAN LEBIH CERDAS</span>
+                <h1 class="auth-title">Selamat datang<br>kembali.</h1>
+                <p class="auth-desc">Buat setiap pengeluaran bersama tetap jelas, adil, dan bebas ribet.</p>
+
+                <!-- Tab Navigasi Masuk / Buat Akun -->
+                <div class="auth-tabs">
+                    <button class="auth-tab active" id="tab-masuk">Masuk</button>
+                    <button class="auth-tab" id="tab-daftar">Buat Akun</button>
+                </div>
+
+                <!-- Form Input -->
+                <form class="auth-form" id="login-form">
+                    <div class="input-group">
+                        <label for="email">Alamat email</label>
+                        <input type="email" id="email" placeholder="name@example.com" required>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="label-row">
+                            <label for="password">Kata sandi</label>
+                            <a href="#" class="forgot-password-link">Lupa kata sandi?</a>
+                        </div>
+                        <div class="password-input-wrapper">
+                            <input type="password" id="password" placeholder="Masukkan kata sandi" required>
+                            <!-- Ikon Mata (Toggle Password) -->
+                            <span class="toggle-password-icon">👁️</span>
+                        </div>
+                    </div>
+
+                    <!-- Tombol Masuk Utama (Simulasi Pindah ke Dashboard) -->
+                    <button type="submit" class="btn-submit-orange">
+                        Masuk ke PatunganTrack <span class="arrow-icon">→</span>
+                    </button>
+                </form>
+
+            </div>
+        </main>
+
+        <!-- SISI KANAN: BANNER SECTION -->
+        <aside class="auth-banner-section">
+            <div class="banner-content">
+                <div class="banner-tag">
+                    <span class="line-decorator">—</span> DIBUAT UNTUK KEBERSAMAAN
+                </div>
+                <h2 class="banner-headline">Patungan adil.<br>Hidup maksimal.</h2>
+                <p class="banner-subtext">Pantau pengeluaran, lunasi tagihan, dan raih tujuan bersama — semua di satu tempat.</p>
+            </div>
+            <!-- Efek Dot Matrix / Lingkaran Latar Belakang (Dibuat via CSS) -->
+            <div class="banner-bg-dots"></div>
+        </aside>
+
+    </div>
+
+    <!-- LOGIKA SIMULASI FRONTEND -->
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Menahan refresh form bawaan
+            
+            // Pindah langsung ke dashboard utama (index.html) saat tombol diklik
+            window.location.href = "index.html";
+        });
+
+    </script>
+</body>
+</html>

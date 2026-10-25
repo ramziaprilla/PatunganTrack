@@ -1,0 +1,253 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: #FFFFFF;
+    color: #1E293B;
+    overflow-x: hidden;
+}
+
+.auth-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+/* ==========================================================================
+   SISI KIRI: STYLING FORM 
+   ========================================================================== */
+.auth-form-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 60px;
+    background-color: #FFFFFF;
+}
+
+.form-wrapper {
+    width: 100%;
+    max-width: 420px;
+}
+
+/* Wadah Logo Aplikasi */
+.auth-brand-logo {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    max-height: 45px;
+}
+
+.app-logo-img {
+    max-height: 40px;
+    object-fit: contain;
+    /* Jika logo Anda belum ada, kotak placeholder abu-abu ini akan mengamankan posisinya */
+    background-color: #F1F5F9; 
+    min-width: 150px;
+    min-height: 40px;
+    border-radius: 4px;
+}
+
+.auth-subtitle-orange {
+    color: #FF6B00;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.auth-title {
+    font-size: 34px;
+    font-weight: 800;
+    color: #0F172A;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.auth-desc {
+    font-size: 14px;
+    color: #64748B;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+/* Tab Filter / Pilihan Akses */
+.auth-tabs {
+    display: flex;
+    border-bottom: 2px solid #E2E8F0;
+    margin-bottom: 32px;
+}
+
+.auth-tab {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 12px 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #94A3B8;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.auth-tab.active {
+    color: #0F172A;
+    border-bottom: 3px solid #FF6B00;
+    margin-bottom: -2px; /* Menutupi border bawah container */
+}
+
+/* Input Fields */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1E293B;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid #CBD5E1;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-group input:focus {
+    border-color: #FF6B00;
+}
+
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.forgot-password-link {
+    font-size: 12px;
+    font-weight: 700;
+    color: #FF6B00;
+    text-decoration: none;
+}
+
+.password-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.toggle-password-icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #94A3B8;
+}
+
+/* Tombol Submit */
+.btn-submit-orange {
+    background-color: #FF6B00;
+    color: #FFFFFF;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.btn-submit-orange:hover {
+    background-color: #E05E00;
+}
+
+/* ==========================================================================
+   SISI KANAN: STYLING BANNER 
+   ========================================================================== */
+.auth-banner-section {
+    flex: 1;
+    background: linear-gradient(135deg, #0B192C 0%, #1E3E62 100%);
+    display: flex;
+    align-items: center;
+    padding: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 2;
+    max-width: 540px;
+    color: #FFFFFF;
+}
+
+.banner-tag {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #94A3B8;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.line-decorator {
+    color: #FF6B00;
+    font-weight: 800;
+}
+
+.banner-headline {
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.banner-subtext {
+    font-size: 15px;
+    color: #94A3B8;
+    line-height: 1.6;
+}
+
+/* Aksen Dekorasi Lingkaran/Dots */
+.banner-bg-dots {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    right: -100px;
+    bottom: -100px;
+    background: radial-gradient(circle, rgba(255,107,0,0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* RESPONSIVE LAYOUT UNTUK LAYAR KECIL / TABLET */
+@media (max-width: 900px) {
+    .auth-banner-section {
+        display: none; /* Menyembunyikan banner kanan di hp/tablet agar terfokus pada form */
+    }
+}
