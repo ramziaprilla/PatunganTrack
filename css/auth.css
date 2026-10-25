@@ -14,12 +14,10 @@ body {
 .auth-container {
     display: flex;
     min-height: 100vh;
-    width: 100vw;
+    width: 100%;
 }
 
-/* ==========================================================================
-   SISI KIRI: STYLING FORM 
-   ========================================================================== */
+/* Form */
 .auth-form-section {
     flex: 1;
     display: flex;
@@ -34,7 +32,6 @@ body {
     max-width: 420px;
 }
 
-/* Wadah Logo Aplikasi */
 .auth-brand-logo {
     margin-bottom: 40px;
     display: flex;
@@ -45,8 +42,7 @@ body {
 .app-logo-img {
     max-height: 40px;
     object-fit: contain;
-    /* Jika logo Anda belum ada, kotak placeholder abu-abu ini akan mengamankan posisinya */
-    background-color: #F1F5F9; 
+    background-color: #F1F5F9;
     min-width: 150px;
     min-height: 40px;
     border-radius: 4px;
@@ -76,7 +72,6 @@ body {
     margin-bottom: 32px;
 }
 
-/* Tab Filter / Pilihan Akses */
 .auth-tabs {
     display: flex;
     border-bottom: 2px solid #E2E8F0;
@@ -99,10 +94,9 @@ body {
 .auth-tab.active {
     color: #0F172A;
     border-bottom: 3px solid #FF6B00;
-    margin-bottom: -2px; /* Menutupi border bawah container */
+    margin-bottom: -2px;
 }
 
-/* Input Fields */
 .auth-form {
     display: flex;
     flex-direction: column;
@@ -135,34 +129,26 @@ body {
     border-color: #FF6B00;
 }
 
-.label-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.forgot-password-link {
-    font-size: 12px;
-    font-weight: 700;
-    color: #FF6B00;
-    text-decoration: none;
-}
-
 .password-input-wrapper {
     position: relative;
     width: 100%;
 }
 
-.toggle-password-icon {
-    position: absolute;
-    right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    color: #94A3B8;
+.password-input-wrapper input {
+    padding-right: 48px;
 }
 
-/* Tombol Submit */
+.toggle-password-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
 .btn-submit-orange {
     background-color: #FF6B00;
     color: #FFFFFF;
@@ -184,9 +170,22 @@ body {
     background-color: #E05E00;
 }
 
-/* ==========================================================================
-   SISI KANAN: STYLING BANNER 
-   ========================================================================== */
+.btn-submit-orange:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.auth-message {
+    min-height: 20px;
+    font-size: 13px;
+    color: #64748B;
+}
+
+.auth-message.error {
+    color: #DC2626;
+}
+
+/* Banner */
 .auth-banner-section {
     flex: 1;
     background: linear-gradient(135deg, #0B192C 0%, #1E3E62 100%);
@@ -233,7 +232,6 @@ body {
     line-height: 1.6;
 }
 
-/* Aksen Dekorasi Lingkaran/Dots */
 .banner-bg-dots {
     position: absolute;
     width: 400px;
@@ -245,9 +243,16 @@ body {
     z-index: 1;
 }
 
-/* RESPONSIVE LAYOUT UNTUK LAYAR KECIL / TABLET */
 @media (max-width: 900px) {
     .auth-banner-section {
-        display: none; /* Menyembunyikan banner kanan di hp/tablet agar terfokus pada form */
+        display: none;
+    }
+
+    .auth-form-section {
+        padding: 32px 16px;
+    }
+
+    .auth-title {
+        font-size: 28px;
     }
 }

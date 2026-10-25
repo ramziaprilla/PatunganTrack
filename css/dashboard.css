@@ -8,6 +8,7 @@
   --card-bg: #ffffff;
   --border-color: #e2e8f0;
   --navy-banner: #0f172a;
+  --danger: #dc2626;
 }
 
 * {
@@ -17,17 +18,21 @@
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
+[hidden] { display: none !important; }
+
 body {
   background-color: var(--bg-main);
   color: var(--text-dark);
 }
+
+button:disabled { opacity: 0.6; cursor: wait; }
 
 .dashboard-container {
   display: flex;
   min-height: 100vh;
 }
 
-/* SIDEBAR STYLING */
+/* Sidebar */
 .sidebar {
   width: 240px;
   background-color: var(--bg-sidebar);
@@ -105,23 +110,35 @@ body {
   background-color: #fef2f2;
 }
 
-/* MAIN CONTENT STYLING */
+/* Konten utama */
 .main-content {
   margin-left: 240px;
   flex-grow: 1;
+  min-width: 0;
   padding: 24px 40px;
 }
 
 .topbar {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
   margin-bottom: 24px;
 }
+
+.breadcrumb-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.breadcrumb-text a { color: inherit; }
 
 .topbar-right {
   display: flex;
   align-items: center;
   gap: 16px;
+  margin-left: auto;
 }
 
 .icon-btn {
@@ -130,18 +147,10 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  cursor: pointer;
-  position: relative;
-}
-
-.badge-dot {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 8px;
-  height: 8px;
-  background-color: var(--primary-orange);
-  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 
 .user-profile {
@@ -163,7 +172,7 @@ body {
   font-size: 0.85rem;
 }
 
-/* HERO BANNER STYLING */
+/* Hero */
 .hero-banner {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   color: white;
@@ -172,6 +181,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 24px;
   margin-bottom: 24px;
 }
 
@@ -189,29 +199,31 @@ body {
 .banner-actions {
   display: flex;
   gap: 12px;
+  flex-shrink: 0;
+}
+
+.btn-secondary,
+.btn-primary-orange {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .btn-secondary {
   background-color: rgba(255, 255, 255, 0.1);
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
 }
 
 .btn-primary-orange {
   background-color: var(--primary-orange);
   color: white;
-  border: none;
-  padding: 10px 24px;
-  border-radius: 8px;
-  font-weight: 700;
-  cursor: pointer;
 }
 
-/* SEARCH & FILTER STYLING */
+/* Pencarian & filter */
 .search-filter-section {
   display: flex;
   gap: 16px;
@@ -234,14 +246,7 @@ body {
   padding: 14px;
   outline: none;
   font-size: 0.9rem;
-}
-
-.shortcut-key {
-  background: #f1f5f9;
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-size: 0.75rem;
-  color: var(--text-muted);
+  background: transparent;
 }
 
 .filter-pills {
@@ -261,6 +266,7 @@ body {
   font-size: 0.85rem;
   color: var(--text-muted);
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .pill.active {
@@ -268,7 +274,7 @@ body {
   color: white;
 }
 
-/* SUMMARY CARDS STYLING */
+/* Kartu ringkasan */
 .summary-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -305,12 +311,12 @@ body {
 
 .green-text { color: #10b981; font-size: 0.85rem; font-weight: 600; }
 .gray-text { color: var(--text-muted); font-size: 0.85rem; }
-.orange-card { border-color: #ffedd5; }
+.green-value { color: #059669; }
 .orange-label { color: #c2410c; }
 .orange-value { color: #c2410c; }
 .orange-text { color: #c2410c; font-size: 0.85rem; font-weight: 600; }
 
-/* GROUP SECTION GRID STYLING */
+/* Daftar patungan */
 .section-header {
   display: flex;
   justify-content: space-between;
@@ -325,13 +331,6 @@ body {
   border-radius: 20px;
   color: var(--text-muted);
   margin-left: 8px;
-}
-
-.see-all-link {
-  color: var(--primary-orange);
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.9rem;
 }
 
 .group-grid {
@@ -350,12 +349,14 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 8px;
   margin-bottom: 16px;
 }
 
 .group-info {
   display: flex;
   gap: 12px;
+  min-width: 0;
 }
 
 .group-avatar-img {
@@ -368,6 +369,7 @@ body {
 .group-title {
   font-size: 1rem;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 .group-meta {
@@ -380,13 +382,13 @@ body {
   font-weight: 700;
   padding: 4px 10px;
   border-radius: 20px;
+  white-space: nowrap;
 }
 
 .status-badge.running { background: #e0f2fe; color: #0369a1; }
 .status-badge.success { background: #dcfce7; color: #15803d; }
 .status-badge.pending { background: #ffedd5; color: #c2410c; }
 
-/* PROGRESS BAR */
 .progress-container {
   margin-bottom: 16px;
 }
@@ -406,8 +408,9 @@ body {
   margin-bottom: 8px;
 }
 
-.progress-fill.orange-fill { background: var(--primary-orange); height: 100%; }
-.progress-fill.green-fill { background: #10b981; height: 100%; }
+.progress-fill { height: 100%; }
+.progress-fill.orange-fill { background: var(--primary-orange); }
+.progress-fill.green-fill { background: #10b981; }
 
 .target-info {
   display: flex;
@@ -428,11 +431,6 @@ body {
   margin-bottom: 16px;
 }
 
-.member-avatars {
-  display: flex;
-  align-items: center;
-}
-
 .user-share {
   text-align: right;
   font-size: 0.8rem;
@@ -444,38 +442,115 @@ body {
   font-weight: 800;
 }
 
-.status-done-text {
-  display: block;
-  color: #10b981;
-  font-weight: 800;
-}
-
 .card-actions {
   display: flex;
   gap: 8px;
 }
 
-.btn-card-secondary {
+.btn-card-secondary,
+.btn-card-primary,
+.btn-card-danger {
   flex: 1;
   padding: 10px;
-  border: 1px solid var(--border-color);
-  background: #f8fafc;
   border-radius: 8px;
   font-weight: 700;
   font-size: 0.85rem;
+  text-align: center;
+  text-decoration: none;
   cursor: pointer;
+}
+
+.btn-card-secondary {
+  border: 1px solid var(--border-color);
+  background: #f8fafc;
+  color: var(--text-dark);
 }
 
 .btn-card-primary {
-  flex: 1;
-  padding: 10px;
   border: none;
   background: var(--primary-orange);
   color: white;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 0.85rem;
-  cursor: pointer;
 }
 
-.btn-block { width: 100%; }
+.btn-card-danger {
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  color: var(--danger);
+}
+
+.empty-state {
+  background: white;
+  border: 1px dashed var(--border-color);
+  border-radius: 12px;
+  padding: 32px 16px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translate(-50%, 20px);
+  max-width: calc(100% - 32px);
+  background: var(--navy-banner);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  z-index: 10;
+}
+
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+.toast.toast-error { background: var(--danger); }
+
+@media (max-width: 1100px) {
+  .group-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container { flex-direction: column; }
+
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .sidebar-brand { flex: 1; margin: 0; padding: 0; }
+
+  .sidebar-nav {
+    order: 3;
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .nav-item { padding: 8px 12px; font-size: 0.85rem; white-space: nowrap; }
+  .btn-logout { width: auto; padding: 8px 12px; }
+
+  .main-content { margin-left: 0; padding: 16px; }
+  .topbar { margin-bottom: 16px; }
+
+  .hero-banner { flex-direction: column; align-items: flex-start; padding: 24px; }
+  .banner-text h1 { font-size: 1.3rem; }
+  .banner-actions { width: 100%; }
+  .btn-secondary, .btn-primary-orange { flex: 1; text-align: center; }
+
+  .search-filter-section { flex-direction: column; }
+  .filter-pills { overflow-x: auto; }
+
+  .summary-cards, .group-grid { grid-template-columns: 1fr; }
+}

@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PatunganTrack - Notifikasi</title>
-  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/dashboard.css">
   <link rel="stylesheet" href="css/notifications.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,52 +13,36 @@
 <body>
   <div class="dashboard-container">
 
-    <!-- SIDEBAR NAVIGASI -->
     <aside class="sidebar">
       <div class="sidebar-brand">
-        <img src="logo.png" alt="PatunganTrack Logo" class="brand-logo">
+        <img src="Logo-PatunganTrack.png" alt="PatunganTrack Logo" class="brand-logo">
         <span class="brand-title">PatunganTrack</span>
       </div>
 
       <nav class="sidebar-nav">
-        <a href="index.html" class="nav-item">
-          <span class="nav-icon">🏠</span> Home
-        </a>
-        <a href="#" class="nav-item">
-          <span class="nav-icon">👥</span> Grup Patungan
-        </a>
-        <a href="notifications.html" class="nav-item active">
-          <span class="nav-icon">🔔</span> Notifikasi <span class="sidebar-badge">3</span>
-        </a>
-        <a href="#" class="nav-item">
-          <span class="nav-icon">⚙️</span> Akun
-        </a>
+        <a href="index.html" class="nav-item"><span class="nav-icon">🏠</span> Home</a>
+        <a href="groups.html" class="nav-item"><span class="nav-icon">👥</span> Grup Patungan</a>
+        <a href="notifications.html" class="nav-item active"><span class="nav-icon">🔔</span> Notifikasi</a>
+        <a href="account.html" class="nav-item"><span class="nav-icon">⚙️</span> Akun</a>
       </nav>
 
       <div class="sidebar-footer">
-        <button id="logout-btn" class="btn-logout">
-          <span class="nav-icon">↪</span> Keluar Akun
-        </button>
+        <button id="logout-btn" class="btn-logout"><span class="nav-icon">↪</span> Keluar Akun</button>
       </div>
     </aside>
 
-    <!-- KONTEN UTAMA NOTIFIKASI -->
     <main class="main-content">
 
-      <!-- TOPBAR HEADER -->
       <header class="topbar">
         <div class="topbar-right">
-          <button class="icon-btn notification-btn" aria-label="Notifikasi">
-            🔔 <span class="badge-dot"></span>
-          </button>
+          <a href="notifications.html" class="icon-btn" aria-label="Notifikasi">🔔</a>
           <div class="user-profile">
-            <div class="avatar-circle">ar</div>
-            <span class="user-name">User</span>
+            <div class="avatar-circle"></div>
+            <span class="user-name"></span>
           </div>
         </div>
       </header>
 
-      <!-- HEADER NOTIFIKASI -->
       <section class="notif-header-section">
         <div class="notif-title-area">
           <h1>Notifikasi <span class="badge-pill-orange">3 Baru</span></h1>
@@ -71,7 +54,6 @@
         </div>
       </section>
 
-      <!-- FILTER TAB & COUNTER -->
       <section class="notif-filter-bar">
         <div class="filter-pills">
           <button class="pill active">Semua (6)</button>
@@ -82,10 +64,8 @@
         <span class="notif-count-text">Menampilkan 6 notifikasi terkini</span>
       </section>
 
-      <!-- DAFTAR KARTU NOTIFIKASI -->
       <section class="notif-list">
 
-        <!-- Notifikasi 1: Tagihan Jatuh Tempo (Mendesak) -->
         <article class="notif-card border-orange">
           <div class="notif-card-body">
             <div class="notif-icon-box box-orange">⏰</div>
@@ -105,7 +85,6 @@
           </div>
         </article>
 
-        <!-- Notifikasi 2: Pembayaran Diterima -->
         <article class="notif-card border-green">
           <div class="notif-card-body">
             <div class="notif-icon-box box-green">💵</div>
@@ -124,7 +103,6 @@
           </div>
         </article>
 
-        <!-- Notifikasi 3: Undangan Grup Baru -->
         <article class="notif-card border-blue">
           <div class="notif-card-body">
             <div class="notif-icon-box box-blue">👥</div>
@@ -144,7 +122,6 @@
           </div>
         </article>
 
-        <!-- Notifikasi 4: Pengingat Otomatis Dikirim -->
         <article class="notif-card">
           <div class="notif-card-body">
             <div class="notif-icon-box box-gray">✉️</div>
@@ -162,7 +139,6 @@
           </div>
         </article>
 
-        <!-- Notifikasi 5: Patungan Selesai 100% -->
         <article class="notif-card">
           <div class="notif-card-body">
             <div class="notif-icon-box box-green-light">✅</div>
@@ -185,6 +161,6 @@
     </main>
   </div>
 
-  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/shell.js"></script>
 </body>
 </html>

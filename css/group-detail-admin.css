@@ -1,8 +1,9 @@
-/* HEADER & ROLE BADGE */
+/* Header */
 .group-header-section {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 16px;
   margin-bottom: 24px;
 }
 
@@ -28,6 +29,7 @@
   font-size: 1.8rem;
   font-weight: 800;
   margin-bottom: 6px;
+  overflow-wrap: anywhere;
 }
 
 .group-meta-sub {
@@ -35,28 +37,34 @@
   color: var(--text-muted);
 }
 
+.group-desc {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  max-width: 640px;
+}
+
 .group-header-actions {
   display: flex;
   gap: 8px;
+  flex-shrink: 0;
 }
 
 .btn-outline {
   background: white;
   border: 1px solid var(--border-color);
+  color: var(--text-dark);
   padding: 10px 16px;
   border-radius: 8px;
   font-weight: 700;
   font-size: 0.85rem;
+  text-decoration: none;
   cursor: pointer;
 }
 
-.btn-outline-icon {
-  background: white;
-  border: 1px solid var(--border-color);
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  cursor: pointer;
+.btn-outline-danger {
+  color: var(--danger);
+  border-color: #fecaca;
 }
 
 .btn-orange-action {
@@ -70,7 +78,7 @@
   cursor: pointer;
 }
 
-/* STAT CARDS GRID */
+/* Statistik */
 .stat-cards-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -115,10 +123,9 @@
 .orange-link { color: var(--primary-orange); font-weight: 700; text-decoration: none; }
 
 .badge-percent-green { background: #dcfce7; color: #15803d; padding: 2px 8px; border-radius: 12px; }
-.badge-status-yellow { background: #ffedd5; color: #c2410c; padding: 2px 8px; border-radius: 12px; }
 .badge-status-red { background: #fee2e2; color: #b91c1c; padding: 2px 8px; border-radius: 12px; }
 
-/* PROGRESS BAR */
+/* Progres */
 .progress-bar-card {
   background: white;
   border: 1px solid var(--border-color);
@@ -145,90 +152,19 @@
 
 .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 4px; }
 .green-dot { background: #10b981; }
-.orange-dot { background: var(--primary-orange); }
 .gray-dot { background: #cbd5e1; }
 
 .progress-segmented-bar {
   display: flex;
   height: 12px;
-  background: #f1f5f9;
+  background: #cbd5e1;
   border-radius: 10px;
   overflow: hidden;
 }
 
-.green-segment { background: #10b981; }
-.orange-segment { background: var(--primary-orange); }
-.gray-segment { background: #cbd5e1; }
+.green-segment { background: #10b981; transition: width 0.3s; }
 
-/* REKENING KAS RESMI */
-.rekening-section {
-  background: #ffffff;
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  padding: 20px;
-  margin-bottom: 24px;
-}
-
-.rekening-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.rekening-title span { font-weight: 800; font-size: 1rem; }
-.rekening-title p { font-size: 0.8rem; color: var(--text-muted); }
-
-.badge-manual-admin {
-  background: #f1f5f9;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 20px;
-}
-
-.bank-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.bank-card {
-  background: #f8fafc;
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 16px;
-}
-
-.bank-card-head {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.85rem;
-  margin-bottom: 12px;
-}
-
-.badge-tag {
-  background: #e2e8f0;
-  font-size: 0.65rem;
-  padding: 2px 6px;
-  border-radius: 4px;
-  color: var(--text-muted);
-}
-
-.bank-account-num {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.1rem;
-  font-weight: 800;
-  margin-bottom: 8px;
-}
-
-.btn-copy { background: transparent; border: none; cursor: pointer; }
-
-.bank-owner { font-size: 0.75rem; color: var(--text-muted); }
-
-/* TABEL ANGGOTA */
+/* Tabel peserta */
 .members-table-card {
   background: white;
   border: 1px solid var(--border-color);
@@ -241,6 +177,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
   margin-bottom: 20px;
 }
 
@@ -248,7 +185,24 @@
 .table-card-header p { font-size: 0.8rem; color: var(--text-muted); }
 
 .table-filter-pills { display: flex; align-items: center; gap: 8px; }
-.filter-label { font-size: 0.8rem; color: var(--text-muted); }
+
+.peserta-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.peserta-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 14px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.table-scroll { overflow-x: auto; }
 
 .data-table {
   width: 100%;
@@ -271,84 +225,47 @@
   vertical-align: middle;
 }
 
-.row-highlight-orange { background: #fffdfb; }
-
-.user-info-col { display: flex; align-items: center; gap: 10px; }
-.avatar-admin { background: #0f172a; color: white; padding: 6px 10px; border-radius: 50%; font-size: 0.7rem; font-weight: 800; }
-.avatar-img { font-size: 1.2rem; }
-.badge-you { background: #e0f2fe; color: #0369a1; font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; }
-.user-email { display: block; font-size: 0.75rem; color: var(--text-muted); }
-
 .status-pill {
   font-size: 0.75rem;
   font-weight: 700;
   padding: 4px 10px;
   border-radius: 20px;
+  white-space: nowrap;
 }
 
 .green-pill { background: #dcfce7; color: #15803d; }
-.orange-pill { background: #ffedd5; color: #c2410c; }
 .red-pill { background: #fee2e2; color: #b91c1c; }
-.yellow-pill { background: #fefce8; color: #a16207; }
 
 .action-btn-group { display: flex; gap: 6px; }
 
-.btn-table-confirm { background: #10b981; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: 700; cursor: pointer; }
-.btn-table-reject { background: #fee2e2; color: #b91c1c; border: none; padding: 6px 10px; border-radius: 6px; font-weight: 700; cursor: pointer; }
-.btn-table-edit { background: #f1f5f9; border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 6px; font-weight: 600; cursor: pointer; }
-.btn-table-navy { background: #0f172a; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: 700; cursor: pointer; }
-
-/* BOTTOM SPLIT GRID */
-.bottom-split-grid {
-  display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 20px;
+.btn-table-confirm,
+.btn-table-edit,
+.btn-table-reject {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
 }
 
-.card-box {
-  background: white;
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  padding: 20px;
+.btn-table-confirm { background: #10b981; color: white; border: none; }
+.btn-table-edit { background: #f1f5f9; border: 1px solid var(--border-color); }
+.btn-table-reject { background: #fee2e2; color: #b91c1c; border: none; }
+
+@media (max-width: 1100px) {
+  .stat-cards-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-.card-box-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
-.btn-add-pos { background: transparent; border: none; color: var(--primary-orange); font-weight: 700; cursor: pointer; }
+@media (max-width: 768px) {
+  .group-header-section,
+  .table-card-header,
+  .progress-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-.expense-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
-
-.expense-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px;
-  background: #f8fafc;
-  border-radius: 10px;
+  .group-header-actions { flex-wrap: wrap; }
+  .group-title-main { font-size: 1.4rem; }
+  .stat-cards-grid { grid-template-columns: 1fr; }
+  .peserta-form { flex-direction: column; }
 }
-
-.expense-icon { font-size: 1.4rem; }
-.expense-info { flex-grow: 1; display: flex; flex-direction: column; font-size: 0.85rem; }
-.expense-info span { font-size: 0.75rem; color: var(--text-muted); }
-
-.expense-price-col { text-align: right; display: flex; flex-direction: column; }
-.expense-price { font-size: 0.95rem; font-weight: 800; }
-.expense-per-person { font-size: 0.7rem; color: var(--text-muted); }
-
-.expense-total-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid var(--border-color);
-  padding-top: 16px;
-  font-weight: 800;
-}
-
-.total-big-price { font-size: 1.4rem; }
-
-/* KALKULASI RATA */
-.calculation-box { background: #f0f9ff; border-color: #bae6fd; }
-.calc-rows-list { display: flex; flex-direction: column; gap: 12px; margin: 16px 0; }
-.calc-row { display: flex; justify-content: space-between; font-size: 0.85rem; }
-.highlight-calc-row { background: white; padding: 12px; border-radius: 8px; font-weight: 800; }
-.orange-text-big { color: var(--primary-orange); font-size: 1.1rem; }
-.calc-notice { font-size: 0.75rem; color: #0369a1; line-height: 1.4; }

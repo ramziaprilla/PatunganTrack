@@ -1,4 +1,3 @@
-/* HEADER & BREADCRUMB */
 .sub-breadcrumb {
   font-size: 0.8rem;
   color: var(--text-muted);
@@ -32,7 +31,6 @@
   margin-top: 2px;
 }
 
-/* JOIN WRAPPER */
 .join-wrapper {
   display: flex;
   flex-direction: column;
@@ -85,7 +83,6 @@
   border-radius: 20px;
 }
 
-/* INPUT STYLING */
 .label-row-flex {
   display: flex;
   justify-content: space-between;
@@ -171,7 +168,6 @@
   margin-top: 8px;
 }
 
-/* CARD 2: RESULT CARD */
 .group-result-card {
   border-color: #ffd8c2;
   background: #fffdfb;
@@ -308,7 +304,6 @@
   cursor: pointer;
 }
 
-/* BOTTOM BANNER */
 .bottom-info-banner {
   background: #f0f9ff;
   border: 1px solid #bae6fd;
@@ -340,4 +335,19 @@
   border-radius: 8px;
   font-weight: 700;
   font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .join-title-section,
+  .result-details-box,
+  .result-card-footer,
+  .bottom-info-banner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .result-features-grid {
+    grid-template-columns: 1fr;
+  }
 }
