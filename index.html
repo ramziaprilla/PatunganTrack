@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PatunganTrack - Dashboard Utama</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="dashboard-container">
+
+    <!-- SIDEBAR NAVIGASI -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="logo.png" alt="PatunganTrack Logo" class="brand-logo">
+        <span class="brand-title">PatunganTrack</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item active">
+          <span class="nav-icon">🏠</span> Home
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">👥</span> Grup Patungan
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">🔔</span> Notifikasi
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">⚙️</span> Akun
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="logout-btn" class="btn-logout">
+          <span class="nav-icon">↪</span> Keluar Akun
+        </button>
+      </div>
+    </aside>
+
+    <!-- KONTEN UTAMA DASHBOARD -->
+    <main class="main-content">
+
+      <!-- TOPBAR HEADER -->
+      <header class="topbar">
+        <div class="topbar-right">
+          <button class="icon-btn notification-btn" aria-label="Notifikasi">
+            🔔 <span class="badge-dot"></span>
+          </button>
+          <div class="user-profile">
+            <div class="avatar-circle">ar</div>
+            <span class="user-name">User</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- HERO BANNER GREETING -->
+      <section class="hero-banner">
+        <div class="banner-text">
+          <h1>Selamat Datang, User 👋</h1>
+          <p>Kelola pengeluaran bersama, lacak tagihan patungan, dan pantau penyelesaian hutang-piutang secara real-time dengan akurasi terpusat.</p>
+        </div>
+        <div class="banner-actions">
+          <button class="btn-secondary"><span class="btn-icon">🔒</span> Join Grup</button>
+          <button class="btn-primary-orange">+ Add</button>
+        </div>
+      </section>
+
+      <!-- SEARCH BAR & FILTER PILLS -->
+      <section class="search-filter-section">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Cari grup patungan, nama teman, nomor tagihan, atau kategori pengeluaran...">
+          <span class="shortcut-key">⌘ K</span>
+        </div>
+        <div class="filter-pills">
+          <button class="pill active">Semua</button>
+          <button class="pill">Aktif</button>
+          <button class="pill">Belum Lunas</button>
+          <button class="pill">Selesai</button>
+        </div>
+      </section>
+
+      <!-- RINGKASAN STATISTIK (3 CARD SUMMARY) -->
+      <section class="summary-cards">
+        <div class="card card-summary">
+          <div class="card-header">
+            <span class="summary-label">TOTAL PATUNGAN AKTIF</span>
+            <span class="card-icon blue-icon">📊</span>
+          </div>
+          <div class="card-value">Rp 8.450.000</div>
+          <div class="card-subtext green-text">
+            <span>↑ +12.4%</span> • 4 Grup Berjalan
+          </div>
+        </div>
+
+        <div class="card card-summary">
+          <div class="card-header">
+            <span class="summary-label">TOTAL KAMU BAYARKAN</span>
+            <span class="card-icon blue-icon">↗</span>
+          </div>
+          <div class="card-value">Rp 4.200.000</div>
+          <div class="card-subtext gray-text">
+            • 3 menunggu verifikasi
+          </div>
+        </div>
+
+        <div class="card card-summary warning-card">
+          <div class="card-header">
+            <span class="summary-label orange-label">PERLU KAMU BAYAR</span>
+            <span class="card-icon orange-icon">!</span>
+          </div>
+          <div class="card-value orange-value">Rp 1.150.000</div>
+          <div class="card-subtext orange-text">
+            ⏰ Jatuh tempo 2 hari
+          </div>
+        </div>
+      </section>
+
+      <!-- GRID GRUP PATUNGAN AKTIF -->
+      <section class="group-section">
+        <div class="section-header">
+          <h2>Grup Patungan Aktif <span class="badge-count">4 Grup</span></h2>
+          <a href="#" class="see-all-link">Lihat Semua ›</a>
+        </div>
+
+        <div class="group-grid">
+
+          <!-- CARD 1: Liburan Bali Kompak -->
+          <article class="card group-card">
+            <div class="group-card-header">
+              <div class="group-info">
+                <div class="group-avatar-img">🏝️</div>
+                <div>
+                  <h3 class="group-title">Liburan Bali Kompak</h3>
+                  <p class="group-meta">Wisata • 6 Anggota</p>
+                </div>
+              </div>
+              <span class="status-badge running">Berjalan</span>
+            </div>
+
+            <div class="progress-container">
+              <div class="progress-info">
+                <span>Terkumpul: <strong>Rp 10.875.000</strong></span>
+                <span>75%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill orange-fill" style="width: 75%;"></div>
+              </div>
+              <div class="target-info">
+                <span>Target Total</span>
+                <strong>Rp 14.500.000</strong>
+              </div>
+            </div>
+
+            <div class="group-card-footer">
+              <div class="members-share">
+                <div class="member-avatars">
+                  <div class="avatar-mini">👥</div>
+                  <span class="more-members">+3</span>
+                </div>
+                <div class="user-share">
+                  <span>Bagian Kamu:</span>
+                  <strong class="share-amount">Rp 650.000</strong>
+                </div>
+              </div>
+              <div class="card-actions">
+                <button class="btn-card-secondary">Detail</button>
+                <button class="btn-card-primary">Bayar Bagian</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 2: Sewa Apartemen Tebet 2026 -->
+          <article class="card group-card">
+            <div class="group-card-header">
+              <div class="group-info">
+                <div class="group-avatar-img">🏢</div>
+                <div>
+                  <h3 class="group-title">Sewa Apartemen Tebet 2026</h3>
+                  <p class="group-meta">Hunian • 3 Anggota</p>
+                </div>
+              </div>
+              <span class="status-badge success">Lunas</span>
+            </div>
+
+            <div class="progress-container">
+              <div class="progress-info">
+                <span>Terkumpul: <strong>Rp 6.200.000</strong></span>
+                <span class="green-text">100%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill green-fill" style="width: 100%;"></div>
+              </div>
+              <div class="target-info">
+                <span>Target Total</span>
+                <strong>Rp 6.200.000</strong>
+              </div>
+            </div>
+
+            <div class="group-card-footer">
+              <div class="members-share">
+                <div class="member-avatars">
+                  <div class="avatar-mini">👥</div>
+                </div>
+                <div class="user-share">
+                  <span>Status Kamu:</span>
+                  <strong class="status-done-text">Selesai</strong>
+                </div>
+              </div>
+              <div class="card-actions full-width">
+                <button class="btn-card-secondary btn-block">Lihat Bukti Transfer & Laporan</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 3: Kuliner & Nongkrong -->
+          <article class="card group-card">
+            <div class="group-card-header">
+              <div class="group-info">
+                <div class="group-avatar-img">🍕</div>
+                <div>
+                  <h3 class="group-title">Kuliner & Nongkrong</h3>
+                  <p class="group-meta">Food & Drink • 5 Anggota</p>
+                </div>
+              </div>
+              <span class="status-badge pending">Pending 2 Orang</span>
+            </div>
+
+            <div class="progress-container">
+              <div class="progress-info">
+                <span>Terkumpul: <strong>Rp 740.000</strong></span>
+                <span>40%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill orange-fill" style="width: 40%;"></div>
+              </div>
+              <div class="target-info">
+                <span>Target Total</span>
+                <strong>Rp 1.850.000</strong>
+              </div>
+            </div>
+
+            <div class="group-card-footer">
+              <div class="members-share">
+                <div class="member-avatars">
+                  <div class="avatar-mini">🍕</div>
+                  <span class="more-members">+2</span>
+                </div>
+                <div class="user-share">
+                  <span>Bagian Kamu:</span>
+                  <strong class="share-amount">Rp 195.000</strong>
+                </div>
+              </div>
+              <div class="card-actions">
+                <button class="btn-card-secondary">Detail</button>
+                <button class="btn-card-primary">Bayar Bagian</button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>
